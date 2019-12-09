@@ -16,7 +16,7 @@
     <string name="title_activity_profile">Firebase</string>
     <string name="title_activity_login">Inregistreaza</string>
     <string name="hint_email">Email</string>
-    <string name="hint_password">Rarola</string>
+    <string name="hint_password">Parola</string>
     <string name="hint_name">Nume complet</string>
     <string name="btn_login">Autentifica</string>
     <string name="btn_link_to_register">Creaza cont nou!</string>
