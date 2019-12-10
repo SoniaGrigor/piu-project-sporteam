@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_sporteam"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <!-- Splash screen -->
         <activity
             android:name=".SplashScreenActivity"
@@ -26,38 +27,46 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity> <!-- Login activity -->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- Login activity -->
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity> <!-- Register activity -->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- Register activity -->
         <activity
             android:name=".RegisterActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity> <!-- ResetPassword activity -->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- ResetPassword activity -->
         <activity
             android:name=".ResetPasswordActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EventsActivity"
             android:label="SporTeam"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LocationBookingActivity"
             android:exported="true"
             android:label="SporTeam"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LocationDetailsActivity"
             android:exported="true"
             android:label="SporTeam"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LocationForRentActivity"
             android:exported="true"
             android:label="SporTeam"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NotificationActivity"
+            android:label="@string/title_activity_notification"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MyAccountActivity"
+            android:label="@string/title_activity_my_account"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
