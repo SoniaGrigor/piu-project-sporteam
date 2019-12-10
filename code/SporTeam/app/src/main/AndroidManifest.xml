@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sporteam">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,54 +11,53 @@
         android:roundIcon="@mipmap/ic_launcher_sporteam"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <!-- Splash screen -->
         <activity
             android:name=".SplashScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Main activity -->
+        </activity> <!-- Main activity -->
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/app_name" >
-        </activity>
-
-        <!-- Login activity -->
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity> <!-- Login activity -->
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/app_name" >
-        </activity>
-
-        <!-- Register activity -->
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity> <!-- Register activity -->
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/app_name" >
-        </activity>
-
-        <!-- ResetPassword activity -->
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity> <!-- ResetPassword activity -->
         <activity
             android:name=".ResetPasswordActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/app_name" >
-        </activity>
-
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".EventsActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="SporTeam" >
-        </activity>
-
+            android:label="SporTeam"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".LocationBookingActivity"
+            android:exported="true"
+            android:label="SporTeam"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".LocationDetailsActivity"
+            android:exported="true"
+            android:label="SporTeam"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".LocationForRentActivity"
+            android:exported="true"
+            android:label="SporTeam"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
