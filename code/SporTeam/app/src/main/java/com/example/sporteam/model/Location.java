@@ -1,8 +1,9 @@
 package com.example.sporteam.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Location {
+public class Location implements Serializable {
 
     private String name;
     private String address;

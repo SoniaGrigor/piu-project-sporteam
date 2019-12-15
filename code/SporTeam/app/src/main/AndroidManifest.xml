@@ -61,10 +61,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NotificationActivity"
+            android:exported="true"
             android:label="@string/title_activity_notification"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MyAccountActivity"
+            android:exported="true"
             android:label="@string/title_activity_my_account"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
