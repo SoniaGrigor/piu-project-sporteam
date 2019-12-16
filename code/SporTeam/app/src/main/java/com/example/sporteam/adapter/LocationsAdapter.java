@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.sporteam.LocationBookingActivity;
 import com.example.sporteam.LocationDetailsActivity;
 import com.example.sporteam.R;
 import com.example.sporteam.model.Location;
@@ -55,7 +56,7 @@ public class LocationsAdapter extends ArrayAdapter<Location> {
                 final Location location = (Location) listView.getItemAtPosition(position);
                 Intent intent = new Intent(v.getContext(), LocationDetailsActivity.class);
                 intent.putExtra("location", location);
-                v.getContext().startActivity(intent);
+                ((LocationBookingActivity) v.getContext()).startActivityForResult(intent, 1);
             }
         });
 

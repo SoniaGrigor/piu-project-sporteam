@@ -5,12 +5,15 @@ import com.example.sporteam.model.Location;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class LocationService {
 
-    public static List<Location> getLocations(){
-        List<Location> locations = new ArrayList<>();
+    private static List<Location> locations = new ArrayList<>();
+    private static LocationService instance = null;
+
+    private LocationService(){
 
         Location location1 = new Location();
         location1.setName("Sală sportivă");
@@ -43,7 +46,33 @@ public class LocationService {
         locations.add(location2);
         locations.add(location3);
 
+    }
+
+    public static LocationService getInstance(){
+        if(instance == null){
+            instance = new LocationService();
+        }
+
+        return instance;
+    }
+
+    public List<Location> getLocations(){
         return locations;
+    }
+
+    public void addLocation(Location location){
+        locations.add(location);
+    }
+
+    public static void removeLocation(Location location){
+        Iterator<Location> iterator = locations.iterator();
+        while(iterator.hasNext()){
+            Location loc = iterator.next();
+            if(loc.getName().equals(location.getName()) && loc.getAddress().equals(location.getAddress())){
+                locations.remove(loc);
+                break;
+            }
+        }
     }
 
 }

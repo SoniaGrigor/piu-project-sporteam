@@ -2,8 +2,11 @@ package com.example.sporteam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +23,7 @@ public class LocationDetailsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        Location location = (Location) intent.getSerializableExtra("location");
+        final Location location = (Location) intent.getSerializableExtra("location");
 
         TextView name = findViewById(R.id.locDetNameVal);
         TextView address = findViewById(R.id.locDetAddressVal);
@@ -28,6 +31,7 @@ public class LocationDetailsActivity extends AppCompatActivity {
         TextView phone = findViewById(R.id.locDetPhoneVal);
         TextView availableFrom = findViewById(R.id.locDetAvFromVal);
         TextView availableTo = findViewById(R.id.locDetAvToVal);
+        Button confirm = findViewById(R.id.bookButton);
 
         name.setText(location.getName());
         address.setText(location.getAddress());
@@ -35,6 +39,16 @@ public class LocationDetailsActivity extends AppCompatActivity {
         phone.setText(location.getOwnerPhoneNumber());
         availableFrom.setText(location.getAvailableFrom().toString());
         availableTo.setText(location.getAvailableTo().toString());
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("bookedLocation", location);
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+        });
 
     }
 }

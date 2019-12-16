@@ -6,13 +6,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.sporteam.adapter.EventAdapter;
 import com.example.sporteam.adapter.LocationsAdapter;
 import com.example.sporteam.model.Location;
-import com.example.sporteam.service.EventService;
 import com.example.sporteam.service.LocationService;
 
 import java.util.List;
@@ -24,10 +21,10 @@ public class LocationBookingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_booking);
 
-        List<Location> locations = LocationService.getLocations();
+        List<Location> locations = LocationService.getInstance().getLocations();
 
         LocationsAdapter adapter = new LocationsAdapter(this, locations);
-        final ListView listView = (ListView) findViewById(R.id.locationList);
+        final ListView listView = findViewById(R.id.locationList);
         listView.setAdapter(adapter);
 
         registerForContextMenu(listView);
@@ -38,6 +35,24 @@ public class LocationBookingActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LocationForRentActivity.class);
         startActivity(intent);
 
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+
+        switch(requestCode){
+            case(1): {
+                if(resultCode == Activity.RESULT_OK){
+                    Location location = (Location) data.getSerializableExtra("bookedLocation");
+                    ListView listView = findViewById(R.id.locationList);
+                    LocationsAdapter adapter = (LocationsAdapter) listView.getAdapter();
+                    listView.setAdapter(adapter);
+                    LocationService.getInstance().removeLocation(location);
+                    System.out.println(location.getName());
+                    adapter.notifyDataSetChanged();
+                }
+                break;
+            }
+        }
     }
 
 }
