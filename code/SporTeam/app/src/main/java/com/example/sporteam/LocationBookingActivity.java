@@ -27,21 +27,20 @@ public class LocationBookingActivity extends AppCompatActivity {
         final ListView listView = findViewById(R.id.locationList);
         listView.setAdapter(adapter);
 
-        registerForContextMenu(listView);
     }
 
     public void LocationToRent(View view) {
 
         Intent intent = new Intent(this, LocationForRentActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 2);
 
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
 
-        switch(requestCode){
-            case(1): {
-                if(resultCode == Activity.RESULT_OK){
+        switch(requestCode) {
+            case (1): {
+                if (resultCode == Activity.RESULT_OK) {
                     Location location = (Location) data.getSerializableExtra("bookedLocation");
                     ListView listView = findViewById(R.id.locationList);
                     LocationsAdapter adapter = (LocationsAdapter) listView.getAdapter();
@@ -50,8 +49,20 @@ public class LocationBookingActivity extends AppCompatActivity {
                     System.out.println(location.getName());
                     adapter.notifyDataSetChanged();
                 }
-                break;
             }
+            break;
+            case (2): {
+                if (resultCode == Activity.RESULT_OK) {
+                    Location location = (Location) data.getSerializableExtra("rentLocation");
+                    ListView listView = findViewById(R.id.locationList);
+                    LocationsAdapter adapter = (LocationsAdapter) listView.getAdapter();
+                    listView.setAdapter(adapter);
+                    LocationService.getInstance().addLocation(location);
+                    System.out.println(location.getName());
+                    adapter.notifyDataSetChanged();
+                }
+            }
+            break;
         }
     }
 
