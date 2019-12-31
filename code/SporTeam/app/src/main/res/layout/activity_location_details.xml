@@ -8,7 +8,7 @@
     tools:context=".LocationDetailsActivity">
 
     <TextView
-        android:id="@+id/locDetName"
+        android:id="@+id/locDetAddress"
         style="@style/Widget.AppCompat.TextView.SpinnerItem"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toStartOf="@+id/locDetAddressVal"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locDetAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/locDetName" />
 
     <TextView
         android:id="@+id/locDetAddressVal"
@@ -36,32 +36,30 @@
         android:id="@+id/locDetImg"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/locDetAddress"
+        app:layout_constraintBottom_toTopOf="@id/locDetName"
         app:layout_constraintEnd_toStartOf="@+id/locDetRatingBar"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/sport1" />
 
     <RatingBar
         android:id="@+id/locDetRatingBar"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
         android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/locDetAddress"
+        android:id="@+id/locDetName"
         style="@style/Widget.AppCompat.TextView.SpinnerItem"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="84dp"
         android:text="Numele:"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/locDetNameVal"
@@ -91,7 +89,7 @@
         app:layout_constraintEnd_toStartOf="@+id/locDetOwnerVal"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locDetName" />
+        app:layout_constraintTop_toBottomOf="@+id/locDetAddress" />
 
     <TextView
         android:id="@+id/locDetPhoneVal"
@@ -156,7 +154,8 @@
         android:text="Adaugă recenzie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locDetAvTo" />
+        app:layout_constraintTop_toBottomOf="@+id/locDetAvTo"
+        app:layout_constraintVertical_bias="0.391" />
 
     <Button
         android:id="@+id/bookButton"
@@ -168,9 +167,10 @@
         android:text="Rezervă"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toEndOf="@+id/addReviewButton"
-        app:layout_constraintTop_toBottomOf="@+id/locDetAvTo" />
+        app:layout_constraintTop_toBottomOf="@+id/locDetAvTo"
+        app:layout_constraintVertical_bias="0.391" />
 
     <TextView
         android:id="@+id/locDetAvFromVal"
@@ -205,35 +205,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locDetRatingBar" />
 
-    <Button
-        android:id="@+id/locDetLocationsBtn"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="24dp"
-        android:background="#2196F3"
-        android:fontFamily="sans-serif-black"
-        android:text="Locații"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/locDetImg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.913" />
-
-    <Button
-        android:id="@+id/locDetEquipmentsBtn"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:background="#2196F3"
-        android:fontFamily="sans-serif-black"
-        android:text="Echipamente"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/locDetLocationsBtn"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

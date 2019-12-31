@@ -14,16 +14,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.sporteam.LocationBookingActivity;
-import com.example.sporteam.LocationDetailsActivity;
+import com.example.sporteam.EquipmentDetailsActivity;
+import com.example.sporteam.EquipmentsActivity;
 import com.example.sporteam.R;
-import com.example.sporteam.model.Location;
+import com.example.sporteam.model.Equipment;
 
 import java.util.List;
 
-public class LocationsAdapter extends ArrayAdapter<Location> {
+public class EquipmentsAdapter extends ArrayAdapter<Equipment> {
 
-    public LocationsAdapter(@NonNull Context context, @NonNull List objects) {
+    public EquipmentsAdapter(@NonNull Context context, @NonNull List objects) {
         super(context, 0, objects);
     }
 
@@ -35,27 +35,27 @@ public class LocationsAdapter extends ArrayAdapter<Location> {
 
         LayoutInflater inflater	= (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View myRow = (convertView == null)
-                ? inflater.inflate(R.layout.location_list_element, parent, false)
+                ? inflater.inflate(R.layout.equipment_list_element, parent, false)
                 : convertView;
 
-        ImageView image = myRow.findViewById(R.id.locationImage);
+        ImageView image = myRow.findViewById(R.id.equipmentImage);
         image.setImageResource(getItem(position).getImage());
 
-        TextView name = myRow.findViewById(R.id.locationText);
+        TextView name = myRow.findViewById(R.id.equipmentText);
         name.setText(getItem(position).getName());
 
-        Button bookLocation = myRow.findViewById(R.id.locationDetailsButton);
+        Button eq = myRow.findViewById(R.id.equipmentDetailsButton);
 
-        bookLocation.setOnClickListener(new View.OnClickListener() {
+        eq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 View parentRow = (View) v.getParent();
                 ListView listView = (ListView) parentRow.getParent();
                 final int position = listView.getPositionForView(parentRow);
-                final Location location = (Location) listView.getItemAtPosition(position);
-                Intent intent = new Intent(v.getContext(), LocationDetailsActivity.class);
-                intent.putExtra("location", location);
-                ((LocationBookingActivity) v.getContext()).startActivityForResult(intent, 1);
+                final Equipment eq = (Equipment) listView.getItemAtPosition(position);
+                Intent intent = new Intent(v.getContext(), EquipmentDetailsActivity.class);
+                intent.putExtra("equipment", eq);
+                v.getContext().startActivity(intent);
             }
         });
 
