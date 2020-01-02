@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.sporteam.adapter.LocationsAdapter;
@@ -20,6 +21,25 @@ public class LocationBookingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_booking);
+
+        Button locBtn = findViewById(R.id.placesButton);
+        locBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), LocationBookingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button eqBtn = findViewById(R.id.equipmentButton);
+        eqBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), EquipmentsActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         List<Location> locations = LocationService.getInstance().getLocations();
 

@@ -2,8 +2,11 @@ package com.example.sporteam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.sporteam.adapter.EquipmentsAdapter;
@@ -20,6 +23,24 @@ public class EquipmentsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equipments);
+
+        Button locBtn = findViewById(R.id.locationBtn);
+        locBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), LocationBookingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button eqBtn = findViewById(R.id.equipmentBtn);
+        eqBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), EquipmentsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         List<Equipment> equipments = EquipmentService.getInstance().getEquipments();
 
