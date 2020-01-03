@@ -57,4 +57,9 @@
     <string name="location_details_page_title">Detalii locatie</string>
     <string name="notification_page_title">Notificari</string>
     <string name="my_account_page_title">Contul meu</string>
+    <string name="register_continue">Continua</string>
+    <string name="register_finish">Finalizare Profil</string>
+    <string name="choose_sports">Alege Sporturi</string>
+    <string name="barriers">Bariere fizice sau psihice</string>
+    <string name="informations">Informatii suplimentare</string>
 </resources>
