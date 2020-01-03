@@ -51,4 +51,10 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
+    <string name="register_continue">Continua</string>
+    <string name="register_finish">Finalizare Profil</string>
+    <string name="choose_sports">Alege Sporturi</string>
+    <string name="barriers">Bariere fizice sau psihice</string>
+    <string name="informations">Informatii suplimentare</string>
+
 </resources>

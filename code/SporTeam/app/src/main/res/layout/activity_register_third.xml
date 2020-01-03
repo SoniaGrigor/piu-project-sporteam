@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".RegisterFirstPageActivity">
+    tools:context=".RegisterSecondPageActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -15,66 +15,48 @@
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:layout_gravity="center_horizontal"
             android:text="SporTeam"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="25dp"></TextView>
 
-        <EditText
-            android:id="@+id/registerName"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/barriersLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:hint="Nume..."
+            android:layout_marginBottom="20dp"
+            android:text="@string/barriers" />
+
+        <EditText
+            android:id="@+id/registerBarriers"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="20dp"
+            android:importantForAutofill="no"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
 
-        <EditText
-            android:id="@+id/registerUsername"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/informationsLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Nume utilizator..."
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:layout_marginBottom="20dp"
+            android:text="@string/informations" />
 
         <EditText
-            android:id="@+id/registerEmail"
+            android:id="@+id/registerInformations"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_marginBottom="10dp"
-            android:hint="Email..."
-            android:inputType="textEmailAddress"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
-
-        <EditText
-            android:id="@+id/registerPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Parola..."
-            android:inputType="textPassword"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
-
-        <EditText
-            android:id="@+id/registerPasswordRepeat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
-            android:hint="Confirmare parola..."
-            android:inputType="textPassword"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
 
         <Button
-            android:id="@+id/continueRegisterOne"
+            android:id="@+id/continueRegisterTwo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
@@ -83,13 +65,14 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/finishRegisterOne"
+            android:id="@+id/finishRegisterTwo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:text="@string/register_finish"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
+
 
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".RegisterFirstPageActivity">
+    tools:context=".RegisterSecondPageActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -14,7 +14,6 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,56 +24,41 @@
             android:textSize="25dp"></TextView>
 
         <EditText
-            android:id="@+id/registerName"
+            android:id="@+id/registerSex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:hint="Nume..."
+            android:hint="Sexul..."
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
 
         <EditText
-            android:id="@+id/registerUsername"
+            android:id="@+id/registerAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Nume utilizator..."
+            android:hint="Vârsta..."
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
 
-        <EditText
-            android:id="@+id/registerEmail"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/selectedSports"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Email..."
-            android:inputType="textEmailAddress"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
-
-        <EditText
-            android:id="@+id/registerPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Parola..."
-            android:inputType="textPassword"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
-
-        <EditText
-            android:id="@+id/registerPasswordRepeat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
-            android:hint="Confirmare parola..."
-            android:inputType="textPassword"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:text="" />
 
         <Button
-            android:id="@+id/continueRegisterOne"
+            android:id="@+id/selectSports"
+            android:layout_width="212dp"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_sports"
+            android:layout_marginTop="40dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/continueRegisterTwo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
@@ -83,7 +67,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/finishRegisterOne"
+            android:id="@+id/finishRegisterTwo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
