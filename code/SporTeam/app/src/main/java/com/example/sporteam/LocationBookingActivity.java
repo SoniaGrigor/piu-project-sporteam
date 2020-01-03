@@ -50,7 +50,6 @@ public class LocationBookingActivity extends AppCompatActivity {
     }
 
     public void LocationToRent(View view) {
-
         Intent intent = new Intent(this, LocationForRentActivity.class);
         startActivityForResult(intent, 2);
 
@@ -84,6 +83,11 @@ public class LocationBookingActivity extends AppCompatActivity {
             }
             break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
 }

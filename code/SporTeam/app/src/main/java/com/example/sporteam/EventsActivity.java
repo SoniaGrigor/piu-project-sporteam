@@ -34,4 +34,9 @@ public class EventsActivity extends AppCompatActivity {
 
        registerForContextMenu(listView);
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

@@ -30,4 +30,9 @@ public class MyAccountActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(), "Pulse", Toast.LENGTH_SHORT);
         toast.show();
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

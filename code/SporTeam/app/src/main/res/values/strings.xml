@@ -34,8 +34,6 @@
 
     <string name="lbl_forgot_password">Ai uitat parola?</string>
     <string name="forgot_password_msg">Intrtoduceti email-ul pentru a primi instructiuni de resetarea a parolei.</string>
-    <string name="title_activity_notification">Notificari</string>
-    <string name="title_activity_my_account">Contul meu</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -50,5 +48,13 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-
+    <string name="home_page_title">Home</string>
+    <string name="login_page_title">Login</string>
+    <string name="register_page_title">Register</string>
+    <string name="reset_password_page_title">Resetare parola</string>
+    <string name="events_page_title">Evenimente</string>
+    <string name="location_book_page_title">Inchireaza locatie</string>
+    <string name="location_details_page_title">Detalii locatie</string>
+    <string name="notification_page_title">Notificari</string>
+    <string name="my_account_page_title">Contul meu</string>
 </resources>
