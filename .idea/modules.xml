@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Proj-piu-project-sporteam.iml" filepath="$PROJECT_DIR$/.idea/modules/Proj-piu-project-sporteam.iml" group="piu-project-sporteam" />
       <module fileurl="file://$PROJECT_DIR$/piu-project-sporteam.iml" filepath="$PROJECT_DIR$/piu-project-sporteam.iml" />
     </modules>
   </component>

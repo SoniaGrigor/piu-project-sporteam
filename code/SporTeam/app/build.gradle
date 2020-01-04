@@ -40,7 +40,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.firebase:firebase-auth:19.2.0'
 
-    // gson
+    //gson
     implementation 'com.google.code.gson:gson:2.8.5'
 
 }

@@ -23,7 +23,7 @@ public class SplashScreenActivity extends Activity {
 
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }

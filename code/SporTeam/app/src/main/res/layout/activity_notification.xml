@@ -9,16 +9,12 @@
     tools:openDrawer="start">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="579dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="108dp"
         android:orientation="vertical">
 
         <TextView
@@ -27,8 +23,11 @@
             android:layout_height="wrap_content"
             android:text="Vreme"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="24sp"
+            android:layout_marginStart="25sp"
+            android:layout_marginTop="20sp"
+            android:textStyle="bold"
+            />
 
         <TextView
             android:id="@+id/textView_details_vreme"
@@ -36,36 +35,52 @@
             android:layout_height="wrap_content"
             android:text="Informatii despre vremea de maine"
             android:textColor="@android:color/black"
-            android:textSize="12sp" />
+            android:layout_marginStart="25sp"
+            android:textSize="18sp" />
 
         <Switch
             android:id="@+id/chip_vreme"
-            android:layout_width="wrap_content"
+            android:layout_width="390dp"
             android:layout_height="wrap_content" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@color/blue" />
 
         <TextView
             android:id="@+id/textView_titlu_hidratare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hidratare"
+            android:layout_marginStart="25sp"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView_details_hidratare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="25sp"
             android:text="Notificari cand sa te hidratezi"
             android:textColor="@android:color/black"
-            android:textSize="12sp" />
+            android:textSize="18sp" />
 
         <Switch
             android:id="@+id/chip_hidratare"
-            android:layout_width="wrap_content"
+            android:layout_width="390dp"
             android:layout_height="wrap_content" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_above="@id/textView_title_puls"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/blue" />
 
         <TextView
             android:id="@+id/textView_titlu_alimenttie"
@@ -73,20 +88,22 @@
             android:layout_height="wrap_content"
             android:text="Plan de alimentatie"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="24sp"
+            android:layout_marginStart="25sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView_details_alimentatie"
+            android:layout_marginStart="25sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sugestii despre mancare, miscare"
             android:textColor="@android:color/black"
-            android:textSize="12sp" />
+            android:textSize="18sp" />
 
         <Switch
             android:id="@+id/chip_alimentatie"
-            android:layout_width="wrap_content"
+            android:layout_width="390dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
