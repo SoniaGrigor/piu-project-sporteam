@@ -54,10 +54,10 @@
         android:layout_width="134dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/event_image"
-        android:layout_alignRight="@+id/event_image"
+        android:layout_alignEnd="@+id/event_image"
         android:layout_alignBottom="@+id/event_title"
         android:layout_marginStart="255dp"
-        android:layout_marginRight="-255dp"
+        android:layout_marginEnd="-255dp"
         android:layout_marginBottom="-41dp"
         android:textColor="@android:color/holo_blue_dark" />
 

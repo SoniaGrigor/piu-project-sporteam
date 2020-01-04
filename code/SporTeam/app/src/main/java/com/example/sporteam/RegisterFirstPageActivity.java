@@ -2,6 +2,7 @@ package com.example.sporteam;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +24,7 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_first);
 
-        userService = new UserService();
+        userService = UserService.getInstance();
 
         name = (EditText) findViewById(R.id.registerName);
         username = (EditText) findViewById(R.id.registerUsername);
@@ -71,20 +72,26 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
         email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus){
+                if (!hasFocus) {
                     boolean noDuplicate = true;
-                    for(User user : userService.getUsers()){
-                        if(user.getEmail().equals(email.getText().toString())){
-                            Toast.makeText(getApplication(), "This email already exists!", Toast.LENGTH_SHORT).show();
-                            noDuplicate = false;
-                            break;
-                        }
-                    }
 
-                    if(email.getText().toString().equals("")){
-                        Toast.makeText(getApplication(), "Email can't be left empty!", Toast.LENGTH_SHORT).show();
+                    if (Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
+                        for (User user : userService.getUsers()) {
+                            if (user.getEmail().equals(email.getText().toString())) {
+                                Toast.makeText(getApplication(), "This email already exists!", Toast.LENGTH_SHORT).show();
+                                noDuplicate = false;
+                                break;
+                            }
+                        }
+
+                        if (email.getText().toString().equals("")) {
+                            Toast.makeText(getApplication(), "Email can't be left empty!", Toast.LENGTH_SHORT).show();
+                            conditionThree = false;
+                        } else conditionThree = noDuplicate;
+                    } else {
                         conditionThree = false;
-                    }else conditionThree = noDuplicate;
+                        Toast.makeText(getApplication(), "Email has no valid format!", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -120,6 +127,7 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                clearFocuses();
                 if(conditionOne && conditionTwo && conditionThree && conditionFour && conditionFive){
                     Intent intent = new Intent(RegisterFirstPageActivity.this, RegisterSecondPageActivity.class);
                     User user = new User(username.getText().toString(), username.getText().toString(),
@@ -136,14 +144,26 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearFocuses();
                 if(conditionOne && conditionTwo && conditionThree && conditionFour && conditionFive){
                     userService.addNewUser(new User(username.getText().toString(), username.getText().toString(),
                             email.getText().toString(), password.getText().toString()));
+                    User user = new User(username.getText().toString(), username.getText().toString(),
+                            email.getText().toString(), password.getText().toString());
+                    userService.addNewUser(user);
                     startActivity(new Intent(RegisterFirstPageActivity.this, MyAccountActivity.class));
                 }else{
                     Toast.makeText(getApplication(), "Profilul nu poate fi creat. Verificati inca o data toate campurile!", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
+                }
+            });
+        }
+
+    public void clearFocuses(){
+        name.clearFocus();
+        username.clearFocus();
+        email.clearFocus();
+        password.clearFocus();
+        confirmedPassword.clearFocus();
     }
 }

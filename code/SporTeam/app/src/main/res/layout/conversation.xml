@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="60dp"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:id="@+id/avatarConversation"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerInside"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+
+    <TextView
+        android:id="@+id/nameConversation"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/avatarConversation"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:text="Rose"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

@@ -2,11 +2,11 @@ package com.example.sporteam.service;
 
 import com.example.sporteam.R;
 import com.example.sporteam.model.Location;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 
 public class LocationService {
 

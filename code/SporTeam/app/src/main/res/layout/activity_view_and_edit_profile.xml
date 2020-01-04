@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="100dp">
+
+            <TextView
+                android:id="@+id/sportTeamProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/sporteam"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="25sp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/viewProfileImage"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_below="@+id/sportTeamProfile"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/profile_picture" />
+
+            <TextView
+                android:id="@+id/viewProfileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/viewProfileImage"
+                android:layout_marginTop="42dp"
+                android:text="@string/registerName" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/viewProfileName"
+                android:padding="10dip"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/viewProfileImage"
+                android:layout_marginEnd="-272dp"
+                android:inputType="text"
+                android:text="Vincze Robert" />
+
+            <TextView
+                android:id="@+id/viewProfileEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewProfileName"
+                android:layout_marginTop="42dp"
+                android:text="@string/registerEmail" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/viewProfileEmail"
+                android:padding="10dip"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/viewProfileName"
+                android:layout_marginEnd="-272dp"
+                android:inputType="text"
+                android:text="robi997@yahoo.com" />
+
+            <TextView
+                android:id="@+id/viewProfileSex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewProfileEmail"
+                android:layout_marginTop="42dp"
+                android:text="@string/registerSex"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/viewProfileSex"
+                android:padding="10dip"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/viewProfileEmail"
+                android:layout_marginEnd="-272dp"
+                android:inputType="text"
+                android:text="masculin"/>
+
+            <TextView
+                android:id="@+id/viewProfileAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewProfileSex"
+                android:layout_marginTop="42dp"
+                android:text="@string/registerAge"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/viewProfileAge"
+                android:padding="10dip"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/viewProfileSex"
+                android:layout_marginEnd="-272dp"
+                android:inputType="text"
+                android:text="22"/>
+
+            <TextView
+                android:id="@+id/viewProfileSports"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/viewProfileAge"
+                android:layout_marginTop="50dp"
+                android:text="@string/registerSports" />
+
+            <Button
+                android:id="@+id/viewProfileChangeSports"
+                android:layout_width="212dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_toEndOf="@+id/viewProfileSports"
+                android:layout_below="@+id/viewProfileAge"
+                android:layout_marginEnd="20dp"
+                android:text="@string/choose_sports"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/viewProfileBarriers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/viewProfileSports"
+                android:layout_marginTop="42dp"
+                android:text="@string/registerBarriers" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/viewProfileBarriers"
+                android:padding="10dip"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/viewProfileSports"
+                android:layout_marginEnd="-272dp"
+                android:inputType="text"
+                android:text="Sufar de miopie de grad mediu. Din aceasta cauza trebuie sa port neaparat ochelari cand practic
+            orice sport, asadar de multe ori imi este frica sa nu fiu lovit in cap de o minge."/>
+
+            <TextView
+                android:id="@+id/viewProfileInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/viewProfileBarriers"
+                android:layout_marginTop="42dp"
+                android:text="@string/registerInformations" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/viewProfileInformation"
+                android:padding="10dip"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/viewProfileBarriers"
+                android:layout_marginEnd="-272dp"
+                android:inputType="text"
+                android:text="Sunt o persoana foarte sociabila dar devin foarte nervos  daca am de a face cu oameni tampiti."/>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
