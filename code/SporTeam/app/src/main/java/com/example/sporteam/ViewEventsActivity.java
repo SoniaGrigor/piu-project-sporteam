@@ -9,7 +9,7 @@ import com.example.sporteam.model.Event;
 import com.example.sporteam.service.EventService;
 import java.util.List;
 
-public class EventsActivity extends AppCompatActivity {
+public class ViewEventsActivity extends AppCompatActivity {
 
     private ListView listView;
     private EventAdapter eventAdapter;
@@ -23,7 +23,7 @@ public class EventsActivity extends AppCompatActivity {
        setContentView(R.layout.activity_events_list);
 
        listView = findViewById(R.id.events_list);
-       eventService = new EventService();
+       eventService = EventService.getInstance();
        List<Event> events = eventService.getEvents();
 
        eventAdapter = new EventAdapter(this, events);

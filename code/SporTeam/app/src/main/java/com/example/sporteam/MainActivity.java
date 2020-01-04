@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(h);
                         Toast.makeText(MainActivity.this, "Notification", Toast.LENGTH_SHORT).show();break;
                     case R.id.nav_events_drawer:
-                        h = new Intent(MainActivity.this, EventsActivity.class);
+                        h = new Intent(MainActivity.this, ViewEventsActivity.class);
                         startActivity(h);
-                        Toast.makeText(MainActivity.this, "EventsActivity", Toast.LENGTH_SHORT).show();break;
+                        Toast.makeText(MainActivity.this, "ViewEventsActivity", Toast.LENGTH_SHORT).show();break;
                     case R.id.nav_my_account_drawer:
                         h = new Intent(MainActivity.this, MyAccountActivity.class);
                         startActivity(h);

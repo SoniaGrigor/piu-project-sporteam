@@ -25,13 +25,13 @@ public class EventAdapter extends ArrayAdapter<Event> {
                 convertView;
 
         ImageView eventImage = item.findViewById(R.id.event_image);
-        TextView eventTitle = item.findViewById(R.id.event_title);
+        TextView eventSport = item.findViewById(R.id.event_title);
         TextView eventDate = item.findViewById(R.id.event_date);
         TextView eventTime = item.findViewById(R.id.event_title);
         TextView eventLocation = item.findViewById(R.id.event_location);
 
         eventImage.setImageResource(getItem(position).getEventImage());
-        eventTitle.setText(getItem(position).getEventTitle());
+        eventSport.setText(getItem(position).geteventSport());
         eventDate.setText(getItem(position).getEventDate());
         eventTime.setText(getItem(position).getEventTime());
         eventLocation.setText(getItem(position).getEventLocation());

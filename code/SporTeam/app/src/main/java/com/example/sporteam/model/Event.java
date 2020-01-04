@@ -3,15 +3,34 @@ package com.example.sporteam.model;
 
 public class Event {
     private Integer eventImage;
-    private String eventTitle;
+    private String eventSport;
     private String eventDate;
     private String eventTime;
     private String eventLocation;
+    private int eventMinimumPersonNumber;
+    private int eventMmaximumPersonNumber;
+    private String eventPaymentMethod;
+    private String eventType;
 
-    public Event(Integer eventImage, String eventTitle, String eventDate,
-    String eventTime, String eventLocation){
+    public Event(Integer eventImage, String eventSport, String eventDate,
+                 String eventTime, String eventLocation, int eventMinimumPersonNumber,
+                 int eventMaximumPersonNumber, String eventPaymentMethod,
+                 String eventType){
         this.eventImage = eventImage;
-        this.eventTitle = eventTitle;
+        this.eventSport = eventSport;
+        this.eventDate = eventDate;
+        this.eventTime = eventTime;
+        this.eventLocation = eventLocation;
+        this.eventMinimumPersonNumber = eventMinimumPersonNumber;
+        this.eventMmaximumPersonNumber = eventMaximumPersonNumber;
+        this.eventPaymentMethod = eventPaymentMethod;
+        this.eventType = eventType;
+    }
+
+    public Event(Integer eventImage, String eventSport, String eventDate,
+                 String eventTime, String eventLocation){
+        this.eventImage = eventImage;
+        this.eventSport = eventSport;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
         this.eventLocation = eventLocation;
@@ -25,12 +44,12 @@ public class Event {
         this.eventImage = eventImage;
     }
 
-    public String getEventTitle(){
-        return this.eventTitle;
+    public String geteventSport(){
+        return this.eventSport;
     }
 
-    public void setEventTitle(String eventTitle){
-        this.eventTitle = eventTitle;
+    public void seteventSport(String eventSport){
+        this.eventSport = eventSport;
     }
 
     public String getEventDate(){
@@ -55,5 +74,37 @@ public class Event {
 
     public void setEventLocation(){
         this.eventLocation = eventLocation;
+    }
+
+    public int getEventMinimumPersonNumber() {
+        return eventMinimumPersonNumber;
+    }
+
+    public void setEventMinimumPersonNumber(int eventMinimumPersonNumber) {
+        this.eventMinimumPersonNumber = eventMinimumPersonNumber;
+    }
+
+    public int getEventMmaximumPersonNumber() {
+        return eventMmaximumPersonNumber;
+    }
+
+    public void setEventMmaximumPersonNumber(int eventMmaximumPersonNumber) {
+        this.eventMmaximumPersonNumber = eventMmaximumPersonNumber;
+    }
+
+    public String getEventPaymentMethod() {
+        return eventPaymentMethod;
+    }
+
+    public void setEventPaymentMethod(String eventPaymentMethod) {
+        this.eventPaymentMethod = eventPaymentMethod;
+    }
+
+    public String getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
     }
 }

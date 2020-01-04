@@ -11,7 +11,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.sporteam.model.User;
 import com.example.sporteam.service.UserService;
@@ -29,9 +28,9 @@ public class RegisterSecondPageActivity extends AppCompatActivity {
     private User user;
     private UserService userService =  UserService.getInstance();
 
-    CharSequence[] sports = {"Fotbal", "Baschet", "Înot", "Tenis", "Alergare", "Handbal", "Box", "Biliard"};
+    CharSequence[] sports = {"Fotbal", "Baschet", "Înot", "Tenis", "Ping-Pong", "Alergare", "Handbal", "Box", "Biliard"};
 
-    boolean[] selectedSports = {false, false, false, false, false, false, false, false};
+    boolean[] selectedSports = {false, false, false, false, false, false, false, false, false};
 
     boolean ageCondition = false;
 
@@ -96,15 +95,18 @@ public class RegisterSecondPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 age.clearFocus();
-                Intent intent = new Intent(RegisterSecondPageActivity.this, RegisterThirdPageActivity.class);
+                if(ageCondition) {
+                    Intent intent = new Intent(RegisterSecondPageActivity.this, RegisterThirdPageActivity.class);
 
-                int radioId = radioGroup.getCheckedRadioButtonId();
-                radioButton = findViewById(radioId);
-
-                user = updateUser(user);
-                String userJson = (new Gson().toJson(user));
-                intent.putExtra("user", userJson);
-                startActivity(intent);
+                    int radioId = radioGroup.getCheckedRadioButtonId();
+                    radioButton = findViewById(radioId);
+                    user = updateUser(user);
+                    String userJson = (new Gson().toJson(user));
+                    intent.putExtra("user", userJson);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getApplication(), "Continuarea nu este posibila. Verificati inca o data toate campurile!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -112,9 +114,13 @@ public class RegisterSecondPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 age.clearFocus();
-                user = updateUser(user);
-                userService.addNewUser(user);
-                startActivity(new Intent(RegisterSecondPageActivity.this, MyAccountActivity.class));
+                if (ageCondition) {
+                    user = updateUser(user);
+                    userService.addNewUser(user);
+
+                }else{
+                    Toast.makeText(getApplication(), "Profilul nu poate fi creat. Verificati inca o data toate campurile!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
