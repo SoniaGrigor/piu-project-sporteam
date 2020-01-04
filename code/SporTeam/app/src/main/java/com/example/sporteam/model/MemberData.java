@@ -2,11 +2,11 @@ package com.example.sporteam.model;
 
 public class MemberData {
     private String name;
-    private String color;
+    private int image;
 
-    public MemberData(String name, String color) {
+    public MemberData(String name, int image) {
         this.name = name;
-        this.color = color;
+        this.image = image;
     }
 
     public MemberData() {
@@ -16,15 +16,15 @@ public class MemberData {
         return name;
     }
 
-    public String getColor() {
-        return color;
+    public int getImage() {
+        return image;
     }
 
     @Override
     public String toString() {
         return "MemberData{" +
                 "name='" + name + '\'' +
-                ", color='" + color + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 }

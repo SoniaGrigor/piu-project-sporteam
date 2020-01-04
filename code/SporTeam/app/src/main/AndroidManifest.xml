@@ -12,9 +12,6 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-
         <activity
             android:name=".SplashScreenActivity"
             android:label="@string/app_name"
@@ -28,8 +25,7 @@
         </activity>
         <activity
             android:name=".PaymentActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -43,31 +39,30 @@
             android:name=".RegisterFirstPageActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterSecondPageActivity"
             android:label="Cont nou - Informatii suplimentare"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterThirdPageActivity"
             android:label="Cont nou - Informatii suplimentare 2"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterFourthPageActivity"
             android:label="Cont nou - Informatii suplimentare 3"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ViewAndEditProfileActivity"
             android:label="Vizualizare si Editare Profil"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ResetPasswordActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EventsActivity"
-            android:label="SporTeam"
             android:exported="true"
+            android:label="SporTeam"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LocationBookingActivity"
@@ -108,6 +103,11 @@
             android:exported="true"
             android:label="@string/my_account_page_title"
             android:theme="@style/AppTheme" />
+        <activity android:name=".ConversationsActivity"
+            android:exported="true"
+            android:label="SporTeam"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>
