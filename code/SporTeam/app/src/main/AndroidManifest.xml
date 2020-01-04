@@ -56,10 +56,10 @@
             android:name=".RegisterFourthPageActivity"
             android:label="Cont nou - Informatii suplimentare 3"
             android:theme="@style/AppTheme.NoActionBar"/>
-<!--        <activity-->
-<!--            android:name=".ViewAndEditProfileActivity"-->
-<!--            android:label="Vizualizare si Editare Profil"-->
-<!--            android:theme="@style/AppTheme.NoActionBar"/>-->
+        <activity
+            android:name=".ViewAndEditProfileActivity"
+            android:label="Vizualizare si Editare Profil"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ResetPasswordActivity"
             android:exported="true"
