@@ -7,9 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.sporteam.model.User;
+import com.example.sporteam.service.UserService;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +22,18 @@ import java.util.List;
 
 public class RegisterSecondPageActivity extends AppCompatActivity {
 
-    private EditText sex, age;
+    private RadioGroup radioGroup;
+    private RadioButton radioButton;
+    private EditText age;
 
     private User user;
+    private UserService userService =  UserService.getInstance();
 
     CharSequence[] sports = {"Fotbal", "Baschet", "Înot", "Tenis", "Alergare", "Handbal", "Box", "Biliard"};
 
     boolean[] selectedSports = {false, false, false, false, false, false, false, false};
+
+    boolean ageCondition = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -34,7 +44,7 @@ public class RegisterSecondPageActivity extends AppCompatActivity {
         String partialUserJson = previousRegistrationPartIntent.getStringExtra("user");
         user = new Gson().fromJson(partialUserJson, User.class);
 
-        sex = (EditText) findViewById(R.id.registerSex);
+        radioGroup = findViewById(R.id.radiogroup_sex);
         age = (EditText) findViewById(R.id.registerAge);
 
         final TextView selectedSportsText = (TextView) findViewById(R.id.selectedSports);
@@ -43,6 +53,19 @@ public class RegisterSecondPageActivity extends AppCompatActivity {
         Button continueButton = (Button) findViewById(R.id.continueRegisterTwo);
         Button finishButton = (Button) findViewById(R.id.finishRegisterTwo);
         selectedSportsText.setText(sportsToString());
+
+        age.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    if(age.getText().toString().matches("\\d+(?:\\.\\d+)?")){
+                        ageCondition = true;
+                    }else{
+                        Toast.makeText(getApplication(), "Varsta trebuie sa fie un numar intreg!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
         sportsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,20 +95,13 @@ public class RegisterSecondPageActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                age.clearFocus();
                 Intent intent = new Intent(RegisterSecondPageActivity.this, RegisterThirdPageActivity.class);
 
-                user.setSex(sex.getText().toString());
-                user.setAge(Integer.parseInt(age.getText().toString()));
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                radioButton = findViewById(radioId);
 
-                List<String> sportsToBeAdded = new ArrayList<>();
-                for(int i = 0; i < sports.length; i++){
-                    if(selectedSports[i]){
-                        sportsToBeAdded.add((String) sports[i]);
-                    }
-                }
-
-                user.setSports(sportsToBeAdded);
-
+                user = updateUser(user);
                 String userJson = (new Gson().toJson(user));
                 intent.putExtra("user", userJson);
                 startActivity(intent);
@@ -95,6 +111,9 @@ public class RegisterSecondPageActivity extends AppCompatActivity {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                age.clearFocus();
+                user = updateUser(user);
+                userService.addNewUser(user);
                 startActivity(new Intent(RegisterSecondPageActivity.this, MyAccountActivity.class));
             }
         });
@@ -109,5 +128,20 @@ public class RegisterSecondPageActivity extends AppCompatActivity {
         }
 
         return text.toString().trim();
+    }
+
+    public User updateUser(User user){
+        user.setSex(radioButton.getText().toString());
+        user.setAge(Integer.parseInt(age.getText().toString()));
+
+        List<String> sportsToBeAdded = new ArrayList<>();
+        for(int i = 0; i < sports.length; i++){
+            if(selectedSports[i]){
+                sportsToBeAdded.add((String) sports[i]);
+            }
+        }
+
+        user.setSports(sportsToBeAdded);
+        return user;
     }
 }

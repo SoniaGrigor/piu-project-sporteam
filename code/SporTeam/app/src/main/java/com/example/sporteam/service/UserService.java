@@ -8,9 +8,13 @@ import java.util.List;
 public class UserService {
 
     private List<User> users;
-
-    public UserService(){
+    private static UserService instance = new UserService();
+    private UserService(){
         users = initializeUsers();
+    }
+
+    public static UserService getInstance(){
+        return instance;
     }
 
     private List<User> initializeUsers(){

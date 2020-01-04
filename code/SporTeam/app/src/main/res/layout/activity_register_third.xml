@@ -22,22 +22,22 @@
             android:layout_gravity="center_horizontal"
             android:text="SporTeam"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="25dp"></TextView>
+            android:textSize="25dp"/>
 
         <TextView
             android:id="@+id/barriersLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="@string/barriers" />
+            android:text="@string/registerBarriers" />
 
         <EditText
             android:id="@+id/registerBarriers"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginBottom="20dp"
-            android:importantForAutofill="no"
             android:textColor="@android:color/white"
+            android:inputType="text"
             android:textColorHint="@android:color/white" />
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="@string/informations" />
+            android:text="@string/registerInformations" />
 
         <EditText
             android:id="@+id/registerInformations"
@@ -53,10 +53,11 @@
             android:layout_height="80dp"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:textColorHint="@android:color/white"
+            android:inputType="text" />
 
         <Button
-            android:id="@+id/continueRegisterTwo"
+            android:id="@+id/continueRegisterThree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
@@ -65,7 +66,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/finishRegisterTwo"
+            android:id="@+id/finishRegisterThree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"

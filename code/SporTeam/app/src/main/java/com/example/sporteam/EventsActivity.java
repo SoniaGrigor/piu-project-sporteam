@@ -2,14 +2,11 @@ package com.example.sporteam;
 
 import android.os.Bundle;
 import android.widget.ListView;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.sporteam.adapter.EventAdapter;
 import com.example.sporteam.model.Event;
 import com.example.sporteam.service.EventService;
-
 import java.util.List;
 
 public class EventsActivity extends AppCompatActivity {

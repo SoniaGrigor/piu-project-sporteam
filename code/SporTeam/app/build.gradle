@@ -43,6 +43,9 @@ dependencies {
     // gson
     implementation 'com.google.code.gson:gson:2.8.5'
 
+    // circle image view
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
 }
 
 //Firebase

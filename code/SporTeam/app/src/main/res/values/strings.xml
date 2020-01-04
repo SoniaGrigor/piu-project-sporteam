@@ -57,9 +57,28 @@
     <string name="location_details_page_title">Detalii locatie</string>
     <string name="notification_page_title">Notificari</string>
     <string name="my_account_page_title">Contul meu</string>
+
+    <string name="registerName">Nume:<font color='#FF0000'>*</font></string>
+    <string name="registerUsername">Nume utilizator:<font color='#FF0000'>*</font></string>
+    <string name="registerEmail">Email…<font color='#FF0000'>*</font></string>
+    <string name="registerPassword">Parola:<font color='#FF0000'>*</font></string>
+    <string name="registerPasswordRepeat">Confirmare parola:<font color='#FF0000'>*</font></string>
+    <string name="registerSex">Sex:</string>
+    <string name="registerSports">Sporturi preferate:</string>
     <string name="register_continue">Continua</string>
     <string name="register_finish">Finalizare Profil</string>
     <string name="choose_sports">Alege Sporturi</string>
+    <string name="registerBarriers">Bariere fizice sau psihice:</string>
+    <string name="registerInformations">Informatii suplimentare:</string>
+    <string name="sex_masculine">Masculin</string>
+    <string name="sex_feminine">Feminin</string>
+    <string name="registerAge">Vârsta:</string>
+    <string name="sporteam">SporTeam</string>
+    <string name="sex_choice">Sexul:</string>
+    <string name="loadProfilePicture">Incarca imaginea ta de profil:</string>
+
+
+
     <string name="barriers">Bariere fizice sau psihice</string>
     <string name="informations">Informatii suplimentare</string>
 </resources>

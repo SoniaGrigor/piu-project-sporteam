@@ -1,6 +1,5 @@
 package com.example.sporteam.model;
 
-import android.widget.ImageView;
 
 public class Event {
     private Integer eventImage;

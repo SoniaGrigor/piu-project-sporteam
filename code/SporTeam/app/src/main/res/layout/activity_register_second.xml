@@ -18,29 +18,47 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="SporTeam"
+            android:text="@string/sporteam"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="25dp"></TextView>
+            android:textSize="25sp"/>
 
-        <EditText
-            android:id="@+id/registerSex"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:hint="Sexul..."
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:text="@string/sex_choice"
+            android:textColor="@color/white"/>
+
+        <RadioGroup
+            android:id="@+id/radiogroup_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <RadioButton
+                android:id="@+id/radio_masculine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sex_masculine"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radio_feminine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sex_feminine" />
+
+        </RadioGroup>
 
         <EditText
             android:id="@+id/registerAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Vârsta..."
+            android:inputType="number"
+            android:hint="@string/registerAge"
             android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:textColorHint="@android:color/white"
+            android:autofillHints="" />
 
         <TextView
             android:id="@+id/selectedSports"

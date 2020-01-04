@@ -20,9 +20,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="SporTeam"
+            android:text="@string/sporteam"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="25dp"></TextView>
+            android:textSize="25sp"/>
 
         <EditText
             android:id="@+id/registerName"
@@ -30,48 +30,55 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:hint="Nume..."
+            android:hint="@string/registerName"
             android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:textColorHint="@android:color/white"
+            android:autofillHints=""
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/registerUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Nume utilizator..."
+            android:hint="@string/registerUsername"
             android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:textColorHint="@android:color/white"
+            android:autofillHints=""
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/registerEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Email..."
+            android:hint="@string/registerEmail"
             android:inputType="textEmailAddress"
             android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:textColorHint="@android:color/white"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/registerPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Parola..."
+            android:hint="@string/registerPassword"
             android:inputType="textPassword"
             android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:textColorHint="@android:color/white"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/registerPasswordRepeat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="100dp"
-            android:hint="Confirmare parola..."
+            android:hint="@string/registerPasswordRepeat"
             android:inputType="textPassword"
             android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:textColorHint="@android:color/white"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/continueRegisterOne"
