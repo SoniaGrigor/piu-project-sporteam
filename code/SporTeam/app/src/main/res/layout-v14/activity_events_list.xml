@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imgMap"
-        android:layout_width="290dp"
-        android:layout_height="190dp"
-        android:src="@drawable/map" />
+    <TextView
+        android:id="@+id/joinText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="30dp"
+        android:text="Apasă pe eveniment pentru alăturare" />
 
     <ListView
         android:id="@+id/events_list"
         android:layout_width="match_parent"
-        android:layout_height="381dp"
-        android:layout_alignStart="@+id/imgMap"
-        android:layout_alignBottom="@+id/imgMap"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="-397dp"></ListView>
+        android:layout_height="500dp"
+        android:layout_below="@+id/joinText"
+        android:layout_marginTop="30dp"/>
 
     <Button
         android:id="@+id/new_event_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/events_list"
-        android:layout_alignBottom="@+id/events_list"
-        android:layout_marginStart="110dp"
-        android:layout_marginBottom="-120dp"
-        android:text="Creeaza Eveniment Nou"
+        android:layout_below="@+id/events_list"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="80dp"
+        android:text="@string/createNewEvent"
         android:textColor="@android:color/holo_blue_dark" />
 
 </RelativeLayout>

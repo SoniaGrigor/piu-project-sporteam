@@ -91,4 +91,6 @@
     <string name="cvv">CVV:</string>
     <string name="cardExpirationDate">Data expirării:</string>
     <string name="confirm">Confirmă</string>
+    <string name="createNewEvent">Creează Eveniment Nou</string>
+    <string name="joinEvent">Alăturare</string>
 </resources>

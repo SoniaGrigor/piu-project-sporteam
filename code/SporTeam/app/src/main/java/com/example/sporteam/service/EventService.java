@@ -29,8 +29,11 @@ public class EventService {
         events.add(new Event(R.drawable.football, "Football",
                 "Dum, 12 Oct", "14:00", "Baza Sportiva"));
 
-        events.add(new Event(R.drawable.pingpong, "Tenis de masa",
+        events.add(new Event(R.drawable.pingpong, "Ping-Pong",
                 "Luni, 13 Oct", "18:30", "RevCourt"));
+
+        events.add(new Event(R.drawable.swimming, "Inot",
+                "Sambata, 4 Ianuarie", "17:00", "Baza Sportiva"));
         return events;
     }
 

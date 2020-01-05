@@ -1,6 +1,9 @@
 package com.example.sporteam;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +33,14 @@ public class ViewEventsActivity extends AppCompatActivity {
        listView.setAdapter(eventAdapter);
 
        registerForContextMenu(listView);
+
+        listView.setOnItemClickListener(new ListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ViewEventsActivity.this, PaymentActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });
     }
 
     @Override
