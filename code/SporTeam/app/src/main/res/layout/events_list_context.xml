@@ -58,5 +58,14 @@
         android:textColor="@android:color/black"
         android:text="Baza sportiva"/>
 
+    <TextView
+        android:id="@+id/event_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/event_location"
+        android:layout_toEndOf="@+id/event_image"
+        android:layout_marginStart="50dp"
+        android:textColor="@android:color/black"
+        android:text="Preț: 5.50 LEI"/>
 
 </RelativeLayout>

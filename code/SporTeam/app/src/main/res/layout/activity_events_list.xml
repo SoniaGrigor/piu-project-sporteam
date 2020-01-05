@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="30dp"
-        android:text="Apasă pe eveniment pentru alăturare" />
+        android:text="@string/joinEventText" />
 
     <ListView
         android:id="@+id/events_list"

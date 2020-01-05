@@ -7,13 +7,14 @@ public class Event {
     private String eventDate;
     private String eventTime;
     private String eventLocation;
+    private String eventPrice; // we don't need to do any calculation with the price so it can be a String to avoid conversions
     private int eventMinimumPersonNumber;
     private int eventMmaximumPersonNumber;
     private String eventPaymentMethod;
     private String eventType;
 
     public Event(Integer eventImage, String eventSport, String eventDate,
-                 String eventTime, String eventLocation, int eventMinimumPersonNumber,
+                 String eventTime, String eventLocation, String eventPrice, int eventMinimumPersonNumber,
                  int eventMaximumPersonNumber, String eventPaymentMethod,
                  String eventType){
         this.eventImage = eventImage;
@@ -21,19 +22,11 @@ public class Event {
         this.eventDate = eventDate;
         this.eventTime = eventTime;
         this.eventLocation = eventLocation;
+        this.eventPrice = eventPrice;
         this.eventMinimumPersonNumber = eventMinimumPersonNumber;
         this.eventMmaximumPersonNumber = eventMaximumPersonNumber;
         this.eventPaymentMethod = eventPaymentMethod;
         this.eventType = eventType;
-    }
-
-    public Event(Integer eventImage, String eventSport, String eventDate,
-                 String eventTime, String eventLocation){
-        this.eventImage = eventImage;
-        this.eventSport = eventSport;
-        this.eventDate = eventDate;
-        this.eventTime = eventTime;
-        this.eventLocation = eventLocation;
     }
 
     public int getEventImage(){
@@ -44,11 +37,11 @@ public class Event {
         this.eventImage = eventImage;
     }
 
-    public String geteventSport(){
+    public String getEventSport(){
         return this.eventSport;
     }
 
-    public void seteventSport(String eventSport){
+    public void setEventSport(String eventSport){
         this.eventSport = eventSport;
     }
 
@@ -74,6 +67,14 @@ public class Event {
 
     public void setEventLocation(){
         this.eventLocation = eventLocation;
+    }
+
+    public String getEventPrice() {
+        return eventPrice;
+    }
+
+    public void setEventPrice(String eventPrice) {
+        this.eventPrice = eventPrice;
     }
 
     public int getEventMinimumPersonNumber() {
@@ -107,4 +108,5 @@ public class Event {
     public void setEventType(String eventType) {
         this.eventType = eventType;
     }
+
 }
