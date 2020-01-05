@@ -116,8 +116,6 @@
             android:label="SporTeam"
             android:theme="@style/AppTheme.NoActionBar"
             />
-            android:label="SportTeam"
-            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

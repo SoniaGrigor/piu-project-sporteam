@@ -41,6 +41,7 @@
         <Switch
             android:id="@+id/chip_vreme"
             android:layout_width="390dp"
+            android:onClick="startNotificationWeather"
             android:layout_height="wrap_content" />
 
         <View
@@ -72,6 +73,7 @@
         <Switch
             android:id="@+id/chip_hidratare"
             android:layout_width="390dp"
+            android:onClick="startNotificationHydration"
             android:layout_height="wrap_content" />
 
         <View
@@ -104,6 +106,7 @@
         <Switch
             android:id="@+id/chip_alimentatie"
             android:layout_width="390dp"
+            android:onClick="startNotificationNutrition"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
