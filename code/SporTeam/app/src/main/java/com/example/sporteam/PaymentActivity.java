@@ -6,56 +6,137 @@ import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import android.widget.Toast;
 import java.util.Calendar;
+
 
 public class PaymentActivity extends AppCompatActivity {
 
     private int year, month, day;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
     private String expirationDate;
+    EditText cardOwner, cardNumber, cardCvv, cardExpiration;
+    private int dateYear, dateMonth, dateDay;
+    private Calendar expirationDateCalendar;
+    private Button confirmButton;
+
+    boolean conditionOne = false, conditionTwo = false, conditionThree = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        final Calendar calendar = Calendar.getInstance();
+        cardOwner = findViewById(R.id.cardOwner);
+        cardNumber = findViewById(R.id.cardNumber);
+        cardCvv = findViewById(R.id.cvv);
+        cardExpiration = findViewById(R.id.cardExpiration);
+        confirmButton = findViewById(R.id.paymentConfirmBtn);
 
-        EditText cardOwner = findViewById(R.id.cardOwner);
-        EditText cardNumber = findViewById(R.id.cardNumber);
-        EditText cardCvv = findViewById(R.id.cvv);
-        final EditText cardExpiration = findViewById(R.id.cardExpiration);
+        expirationDateCalendar = Calendar.getInstance();
+        dateYear = expirationDateCalendar.get(Calendar.YEAR);
+        dateMonth = expirationDateCalendar.get(Calendar.MONTH);
+        dateDay = expirationDateCalendar.get(Calendar.DATE);
+        cardExpiration.setText(DateFormat.format("EEEE, MMM d, yyyy", expirationDateCalendar).toString());
 
-        cardExpiration.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        cardOwner.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                year = calendar.get(Calendar.YEAR);
-                month = calendar.get(Calendar.MONTH);
-                day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(PaymentActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, onDateSetListener, year, month, day);
-
-                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                datePickerDialog.show();
+                if(!hasFocus){
+                    if(cardOwner.getText().length() <5){
+                        conditionOne = false;
+                        Toast.makeText(PaymentActivity.this, "Numele de titular trebuie să conțină cel puțin 5 caractere!", Toast.LENGTH_SHORT).show();
+                    }else{
+                        conditionOne = true;
+                    }
+                }
             }
         });
 
-        onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+        cardNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month = month+1;
-                expirationDate = day + "/" + month + "/" + year;
-
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
-                LocalDate localDate = LocalDate.parse(expirationDate, formatter);
-                cardExpiration.setText(expirationDate);
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    if(cardNumber.getText().length() != 16){
+                        conditionTwo = false;
+                        Toast.makeText(PaymentActivity.this, "Numărul de card este invalid! Trebuia să aibă 16 cifre!", Toast.LENGTH_SHORT).show();
+                    }else{
+                        conditionTwo = true;
+                    }
+                }
             }
-        };
+        });
+
+        cardCvv.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    if(cardCvv.getText().length() != 3){
+                        conditionThree = false;
+                        Toast.makeText(PaymentActivity.this, "CVV invalid! Trebuia să aibă 3 cifre!", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    conditionThree = true;
+                }
+            }
+        });
+
+        cardExpiration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleDatePicker();
+            }
+        });
+
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardOwner.clearFocus();
+                cardNumber.clearFocus();
+                cardCvv.clearFocus();
+
+                if(conditionOne && conditionTwo && conditionThree){
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if(getCallingActivity().getClassName().equals("com.example.sporteam.ViewEventsActivity")) {
+                    Toast.makeText(getApplication(), "Plată efectuată cu succes! Te-ai alăturat cu succes la eveniment!", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplication(), "Plată efectuată cu succes!", Toast.LENGTH_SHORT).show();
+                }
+                finish();
+                }else{
+
+                    Toast.makeText(PaymentActivity.this, "Plata nu se poate efectua! Verificați încă o dată toate câmpurile", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void handleDatePicker(){
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int date) {
+                expirationDateCalendar.set(Calendar.YEAR, year);
+                expirationDateCalendar.set(Calendar.MONTH, month);
+                expirationDateCalendar.set(Calendar.DATE, date);
+                String dateText = DateFormat.format("EEEE, MMM d, yyyy", expirationDateCalendar).toString();
+
+                cardExpiration.setText(dateText);
+
+                dateYear = year;
+                dateMonth = month;
+                dateDay = date;
+            }
+        }, dateYear, dateMonth, dateDay);
+
+        datePickerDialog.show();
     }
 }

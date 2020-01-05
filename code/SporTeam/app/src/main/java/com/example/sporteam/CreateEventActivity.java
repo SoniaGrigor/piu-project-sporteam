@@ -13,17 +13,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
 import com.example.sporteam.model.Event;
 import com.example.sporteam.service.EventService;
-
 import java.util.Calendar;
-import java.util.Date;
 
 
 public class CreateEventActivity extends Activity {
@@ -36,7 +32,7 @@ public class CreateEventActivity extends Activity {
     private RadioGroup eventTypeRadioGroup;
     private RadioButton eventTypeRadioButton;
 
-    private EditText eventDate, eventTime, eventLocation, minimumPersonNumber, maximumPersonNumber;
+    private EditText eventDate, eventTime, eventLocation, minimumPersonNumber, maximumPersonNumber, eventPrice;
 
     CharSequence[] sports = {"Fotbal", "Baschet", "Înot", "Tenis", "Ping-Pong", "Alergare", "Handbal", "Box", "Biliard"};
     int selectedItem = 0;
@@ -47,7 +43,7 @@ public class CreateEventActivity extends Activity {
     private int eventHour, eventMinute;
     private Calendar eventTimeCalendar;
 
-    boolean conditionOne = false, conditionTwo = false, conditionThree = false;
+    boolean conditionOne = false, conditionTwo = false, conditionThree = false, conditionFour = false;
 
     private EventService eventService = EventService.getInstance();
 
@@ -65,6 +61,7 @@ public class CreateEventActivity extends Activity {
         eventLocation = findViewById(R.id.eventLocationInput);
         minimumPersonNumber = findViewById(R.id.eventMinimumPersonNumberInput);
         maximumPersonNumber = findViewById(R.id.eventMaximumPersonNumberInput);
+        eventPrice = findViewById(R.id.eventPriceInput);
 
         eventDateCalendar = Calendar.getInstance();
         eventYear = eventDateCalendar.get(Calendar.YEAR);
@@ -87,7 +84,7 @@ public class CreateEventActivity extends Activity {
             public void onClick(View v) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(CreateEventActivity.this);
                 alertDialogBuilder.setCancelable(true);
-                alertDialogBuilder.setTitle("Sportul practicat in eveniment:");
+                alertDialogBuilder.setTitle("Sportul ales pentru acest eveniment:");
                 alertDialogBuilder.setSingleChoiceItems(sports, selectedItem, new DialogInterface.OnClickListener() {
 
                     @Override
@@ -122,7 +119,7 @@ public class CreateEventActivity extends Activity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
                     if(eventLocation.getText().toString().equals("")){
-                        Toast.makeText(getApplication(), "Locatia nu poate fi lasata goala!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplication(), "Locația nu poate fi lăsată goală!", Toast.LENGTH_SHORT).show();
                         conditionOne = false;
                     }else{
                         conditionOne = true;
@@ -135,8 +132,8 @@ public class CreateEventActivity extends Activity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
-                    if(!minimumPersonNumber.getText().toString().matches("\\d+(?:\\.\\d+)?")){
-                        Toast.makeText(getApplication(), "Numarul minim de persoane trebuie sa fie un numar intreg!!", Toast.LENGTH_SHORT).show();
+                    if(minimumPersonNumber.getText().toString().equals("")){
+                        Toast.makeText(getApplication(), "Numărul minim de persoane trebuie să fie un număr întreg!", Toast.LENGTH_SHORT).show();
                         conditionTwo = false;
                     }else{
                         conditionTwo = true;
@@ -149,11 +146,25 @@ public class CreateEventActivity extends Activity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
-                    if(!maximumPersonNumber.getText().toString().matches("\\d+(?:\\.\\d+)?")){
-                        Toast.makeText(getApplication(), "Numarul maxim de persoane trebuie sa fie un numar intreg!!", Toast.LENGTH_SHORT).show();
+                    if(maximumPersonNumber.getText().toString().equals("")){
+                        Toast.makeText(getApplication(), "Numărul maxim de persoane trebuie să fie un număr întreg!", Toast.LENGTH_SHORT).show();
                         conditionThree = false;
                     }else{
                         conditionThree = true;
+                    }
+                }
+            }
+        });
+
+        eventPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    if(eventPrice.getText().toString().equals("")){
+                        Toast.makeText(getApplication(), "Trebuie introdus un preț pe care participanții trebuie să îl plătească pentru alăturare!", Toast.LENGTH_SHORT).show();
+                        conditionFour = false;
+                    }else{
+                        conditionFour = true;
                     }
                 }
             }
@@ -180,6 +191,7 @@ public class CreateEventActivity extends Activity {
                         String date = eventDate.getText().toString();
                         String time = eventTime.getText().toString();
                         String location = eventLocation.getText().toString();
+                        String price = eventPrice.getText().toString() + " LEI";
 
                         int paymentMethodRadioId = paymentMethodRadioGroup.getCheckedRadioButtonId();
                         paymentMethodRadioButton = findViewById(paymentMethodRadioId);
@@ -189,17 +201,18 @@ public class CreateEventActivity extends Activity {
                         eventTypeRadioButton = findViewById(eventTypeRadioId);
                         String eventType = eventTypeRadioButton.getText().toString();
 
-                        Event newEvent = new Event(eventImage, sportName, date, time, location, minimumNumber, maximumNumber,
+                        Event newEvent = new Event(eventImage, sportName, date, time, location, price, minimumNumber, maximumNumber,
                                 paymentMethod, eventType);
                         eventService.addNewEvent(newEvent);
-                        startActivity(new Intent(CreateEventActivity.this, MyAccountActivity.class));
+                        Toast.makeText(getApplication(), "Evenimentul nou a fost creeat cu succes!", Toast.LENGTH_SHORT).show();
+                        finish();
 
                     }else{
-                        Toast.makeText(getApplication(), "Numarul maxim de persoane trebuie sa fie egal sau mai mare decat numarul minim!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplication(), "Numărul maxim de persoane trebuie să fie egal sau mai mare decât numărul minim!", Toast.LENGTH_SHORT).show();
                     }
 
                 }else{
-                    Toast.makeText(getApplication(), "Evenimentul nu poate fi creat! Verificati inca o data toate campurile!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(), "Evenimentul nu poate fi creat! Verificați încă o dată toate câmpurile!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

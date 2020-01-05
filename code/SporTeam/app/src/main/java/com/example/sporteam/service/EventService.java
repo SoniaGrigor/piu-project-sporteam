@@ -26,11 +26,14 @@ public class EventService {
 
     private List<Event> initializeEvents(){
         List<Event> events = new ArrayList<>();
-        events.add(new Event(R.drawable.football, "Football",
-                "Dum, 12 Oct", "14:00", "Baza Sportiva"));
+        events.add(new Event(R.drawable.football, "Fotbal",
+                "duminică, ian. 12, 2020", "02:00 PM", "Baza Sportivă", "5.50 LEI", 10, 14, "Plată cu cardul", "Public"));
 
-        events.add(new Event(R.drawable.pingpong, "Tenis de masa",
-                "Luni, 13 Oct", "18:30", "RevCourt"));
+        events.add(new Event(R.drawable.pingpong, "Ping-Pong",
+                "luni, feb. 13, 2020", "06:30 PM", "RevCourt", "10 LEI", 1, 3, "Plată cu cardul", "Public"));
+
+        events.add(new Event(R.drawable.swimming, "Înot",
+                "sâmbătă, ian. 11, 2020", "05:00 PM", "Baza Sportivă", "10 LEI", 1, 10, "Plată prin cash", "Public"));
         return events;
     }
 

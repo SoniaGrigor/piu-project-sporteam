@@ -4,218 +4,242 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="15dp"
-    android:layout_marginEnd="15dp"
-    android:layout_marginBottom="20dp">
 
-    <TextView
-        android:id="@+id/createEventTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fillFields"
-        android:fontFamily="sans-serif-black"
-        android:layout_marginTop="25dp"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/eventSport"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/createEventTitle"
-        android:layout_marginTop="25dp"
-        android:text="@string/eventSport"
-        android:fontFamily="sans-serif-black"
-        android:textSize="16sp" />
-
-    <Button
-        android:id="@+id/eventSportButton"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_below="@+id/createEventTitle"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="18dp"
-        android:layout_toEndOf="@+id/eventSport"
-        android:text="@string/chooseSportDefault" />
-
-    <TextView
-        android:id="@+id/eventDate"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/eventSport"
-        android:layout_marginTop="35dp"
-        android:text="@string/eventData"
-        android:fontFamily="sans-serif-black"
-        android:textSize="16sp"/>
-
-    <EditText
-        android:id="@+id/eventDateInput"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:focusable="false"
-        android:clickable="true"
-        android:layout_below="@+id/eventSport"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="25dp"
-        android:layout_toEndOf="@+id/eventDate"/>
-
-    <TextView
-        android:id="@+id/eventTime"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:focusable="false"
-        android:clickable="true"
-        android:layout_below="@+id/eventDate"
-        android:layout_marginTop="50dp"
-        android:text="@string/eventTime"
-        android:fontFamily="sans-serif-black"
-        android:textSize="16sp"/>
-
-    <EditText
-        android:id="@+id/eventTimeInput"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:focusable="false"
-        android:clickable="true"
-        android:layout_below="@+id/eventDate"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="40dp"
-        android:layout_toEndOf="@+id/eventTime"
-        android:inputType="time"/>
-
-    <TextView
-        android:id="@+id/eventLocation"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/eventTime"
-        android:layout_marginTop="50dp"
-        android:text="@string/eventLocation"
-        android:fontFamily="sans-serif-black"
-        android:textSize="16sp"/>
-
-    <EditText
-        android:id="@+id/eventLocationInput"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/eventTime"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="40dp"
-        android:layout_toEndOf="@+id/eventLocation" />
-
-    <TextView
-        android:id="@+id/eventMinimumPersonNumber"
-        android:layout_width="145dp"
-        android:layout_height="45dp"
-        android:layout_below="@+id/eventLocation"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/eventMinimumPersonNumber"
-        android:textSize="16sp" />
-
-    <EditText
-        android:id="@+id/eventMinimumPersonNumberInput"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/eventLocation"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="40dp"
-        android:layout_toEndOf="@+id/eventMinimumPersonNumber" />
-
-    <TextView
-        android:id="@+id/eventMaximumPersonNumber"
-        android:layout_width="145dp"
-        android:layout_height="45dp"
-        android:layout_below="@+id/eventMinimumPersonNumber"
-        android:layout_marginTop="40dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/eventMaximumPersonNumber"
-        android:textSize="16sp" />
-
-    <EditText
-        android:id="@+id/eventMaximumPersonNumberInput"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/eventMinimumPersonNumber"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="40dp"
-        android:layout_toEndOf="@+id/eventMaximumPersonNumber" />
-
-    <TextView
-    android:id="@+id/eventPaymentMethod"
-    android:layout_width="145dp"
-    android:layout_height="45dp"
-    android:layout_below="@+id/eventMaximumPersonNumber"
-    android:layout_marginTop="30dp"
-    android:fontFamily="sans-serif-black"
-    android:text="@string/eventPaymentMethod"
-    android:textSize="16sp" />
-
-    <RadioGroup
-        android:id="@+id/eventPaymentMethodRadioGroup"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/eventMaximumPersonNumber"
-        android:layout_toEndOf="@+id/eventPaymentMethod"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="38dp">
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp">
 
-        <RadioButton
-            android:id="@+id/cardPaymentMethod"
+        <TextView
+            android:id="@+id/createEventTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/cardPaymentMethod" />
+            android:text="@string/fillFields"
+            android:fontFamily="sans-serif-black"
+            android:layout_marginTop="25dp"
+            android:textSize="24sp" />
 
-        <RadioButton
-            android:id="@+id/cashPaymentMethod"
+        <TextView
+            android:id="@+id/eventSport"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/createEventTitle"
+            android:layout_marginTop="25dp"
+            android:text="@string/eventSport"
+            android:fontFamily="sans-serif-black"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/eventSportButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_below="@+id/createEventTitle"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="18dp"
+            android:layout_toEndOf="@+id/eventSport"
+            android:text="@string/chooseSportDefault" />
+
+        <TextView
+            android:id="@+id/eventDate"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventSport"
+            android:layout_marginTop="35dp"
+            android:text="@string/eventData"
+            android:fontFamily="sans-serif-black"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/eventDateInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_below="@+id/eventSport"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/eventDate"/>
+
+        <TextView
+            android:id="@+id/eventTime"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_below="@+id/eventDate"
+            android:layout_marginTop="50dp"
+            android:text="@string/eventTime"
+            android:fontFamily="sans-serif-black"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/eventTimeInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_below="@+id/eventDate"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/eventTime"
+            android:inputType="time"/>
+
+        <TextView
+            android:id="@+id/eventLocation"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventTime"
+            android:layout_marginTop="50dp"
+            android:text="@string/eventLocation"
+            android:fontFamily="sans-serif-black"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/eventLocationInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventTime"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/eventLocation" />
+
+        <TextView
+            android:id="@+id/eventMinimumPersonNumber"
+            android:layout_width="145dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/eventLocation"
+            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/eventMinimumPersonNumber"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/eventMinimumPersonNumberInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventLocation"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/eventMinimumPersonNumber"
+            android:inputType="numberSigned"/>
+
+        <TextView
+            android:id="@+id/eventMaximumPersonNumber"
+            android:layout_width="145dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/eventMinimumPersonNumber"
+            android:layout_marginTop="40dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/eventMaximumPersonNumber"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/eventMaximumPersonNumberInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventMinimumPersonNumber"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/eventMaximumPersonNumber"
+            android:inputType="numberSigned"/>
+
+        <TextView
+            android:id="@+id/eventPrice"
+            android:layout_width="145dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/eventMaximumPersonNumber"
+            android:layout_marginTop="40dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/eventPrice"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/eventPriceInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventMaximumPersonNumber"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="30dp"
+            android:inputType="numberDecimal"
+            android:layout_toEndOf="@+id/eventPrice"/>
+
+        <TextView
+            android:id="@+id/eventPaymentMethod"
+            android:layout_width="145dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/eventPrice"
+            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/eventPaymentMethod"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:id="@+id/eventPaymentMethodRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventPrice"
+            android:layout_toEndOf="@+id/eventPaymentMethod"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="38dp">
+
+            <RadioButton
+                android:id="@+id/cardPaymentMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/cardPaymentMethod" />
+
+            <RadioButton
+                android:id="@+id/cashPaymentMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cashPaymentMethod" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/eventType"
+            android:layout_width="145dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/eventPaymentMethodRadioGroup"
+            android:layout_marginTop="40dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/eventType"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:id="@+id/eventTypeRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventPaymentMethod"
+            android:layout_toEndOf="@+id/eventType"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="38dp">
+
+            <RadioButton
+                android:id="@+id/publicEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/publicEvent" />
+
+            <RadioButton
+                android:id="@+id/privateEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/privateEvent"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/eventButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cashPaymentMethod" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/eventType"
-        android:layout_width="145dp"
-        android:layout_height="45dp"
-        android:layout_below="@+id/eventPaymentMethodRadioGroup"
-        android:layout_marginTop="40dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/eventType"
-        android:textSize="16sp" />
-
-    <RadioGroup
-        android:id="@+id/eventTypeRadioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/eventPaymentMethod"
-        android:layout_toEndOf="@+id/eventType"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="38dp">
-
-        <RadioButton
-            android:id="@+id/publicEvent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/publicEvent" />
-
-        <RadioButton
-            android:id="@+id/privateEvent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/privateEvent"/>
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/eventButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/eventType"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/distributeEvent" />
-</RelativeLayout>
+            android:layout_below="@id/eventType"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/distributeEvent" />
+    </RelativeLayout>
 
 </ScrollView>
