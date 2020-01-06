@@ -1,12 +1,18 @@
 package com.example.sporteam;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MyAccountActivity extends AppCompatActivity {
 
@@ -14,9 +20,36 @@ public class MyAccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account);
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_setting:
+                        startActivity(new Intent(MyAccountActivity.this, NotificationActivity.class));
+                        break;
+                    case R.id.navigation_event:
+                        startActivity(new Intent(MyAccountActivity.this, ViewEventsActivity.class));
+                        break;
+                    case R.id.navigation_location:
+                        startActivity(new Intent(MyAccountActivity.this, LocationBookingActivity.class));
+                        break;
+                    case R.id.navigation_chat:
+                        startActivity(new Intent(MyAccountActivity.this, ConversationsActivity.class));
+                        break;
+                    case R.id.navigation_profile:
+                        break;
+                }
+                return false;
+            }
+        });
+        Menu menu = navigation.getMenu();
+        MenuItem menuItem = menu.getItem(4);
+        menuItem.setChecked(true);
     }
 
-    public void onSynchronisedStepsClicked(View view){
+    public void onSynchronisedStepsClicked(View view) {
 
         new CountDownTimer(1000, 1000) {
             ProgressBar progressBar = findViewById(R.id.progressBarPasi);
@@ -38,7 +71,7 @@ public class MyAccountActivity extends AppCompatActivity {
         }.start();
     }
 
-    public void onSynchronisedTemperatureClicked(View view){
+    public void onSynchronisedTemperatureClicked(View view) {
 
         new CountDownTimer(1000, 1000) {
             ProgressBar progressBar = findViewById(R.id.progressBarTemperatura);
@@ -60,7 +93,7 @@ public class MyAccountActivity extends AppCompatActivity {
         }.start();
     }
 
-    public void onSynchronisedPulseClicked(View view){
+    public void onSynchronisedPulseClicked(View view) {
 
         new CountDownTimer(1000, 1000) {
             ProgressBar progressBar = findViewById(R.id.progressBarPuls);

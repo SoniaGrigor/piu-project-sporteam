@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -17,8 +19,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
 import com.example.sporteam.model.Event;
 import com.example.sporteam.service.EventService;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.Calendar;
 
 
@@ -51,6 +58,35 @@ public class CreateEventActivity extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_setting:
+                        startActivity(new Intent(CreateEventActivity.this, NotificationActivity.class));
+                        break;
+                    case R.id.navigation_event:
+                        startActivity(new Intent(CreateEventActivity.this, ViewEventsActivity.class));
+                        break;
+                    case R.id.navigation_location:
+                        startActivity(new Intent(CreateEventActivity.this, LocationBookingActivity.class));
+                        break;
+                    case R.id.navigation_chat:
+                        startActivity(new Intent(CreateEventActivity.this, ConversationsActivity.class));
+                        break;
+                    case R.id.navigation_profile:
+                        startActivity(new Intent(CreateEventActivity.this, MyAccountActivity.class));
+                        break;
+                }
+                return false;
+            }
+        });
+        Menu menu = navigation.getMenu();
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
+
 
         sportButton = findViewById(R.id.eventSportButton);
         distributeButton = findViewById(R.id.eventButton);

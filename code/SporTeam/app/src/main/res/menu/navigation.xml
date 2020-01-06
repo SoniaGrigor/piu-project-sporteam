@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@drawable/ic_outline_notifications_black_24dp"
+        android:title="@string/notification_page_title" />
+
+    <item
+        android:id="@+id/navigation_event"
+        android:icon="@drawable/ic_outline_event_black_24dp"
+        android:title="@string/events_page_title" />
+
+    <item
+        android:id="@+id/navigation_location"
+        android:icon="@drawable/ic_outline_sports_handball_black_24dp"
+        android:title="@string/title_location_equipment" />
+
+    <item
+        android:id="@+id/navigation_chat"
+        android:icon="@drawable/ic_chat_black_18dp"
+        android:title="@string/title_chat" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_person_outline_black_18dp"
+        android:title="@string/title_profile" />
+
+</menu>

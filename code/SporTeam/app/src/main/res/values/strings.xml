@@ -47,20 +47,24 @@
     <string name="register_page_title">Înregistrare</string>
     <string name="reset_password_page_title">Resetare parolă</string>
     <string name="events_page_title">Evenimente</string>
+    <string name="new_event_page_title">Eveniment nou</string>
     <string name="location_book_page_title">Închirează locație</string>
     <string name="location_details_page_title">Detalii locație</string>
     <string name="notification_page_title">Notificări</string>
+    <string name="equipment_page_title">Echipamente</string>
     <string name="my_account_page_title">Contul meu</string>
+    <string name="conversation_title_page">Conversații</string>
+
     <string name="registerName">Nume:<font color='#FF0000'>*</font></string>
     <string name="registerUsername">Nume utilizator:<font color='#FF0000'>*</font></string>
-    <string name="registerEmail">Email…<font color='#FF0000'>*</font></string>
+    <string name="registerEmail">Email:<font color='#FF0000'>*</font></string>
     <string name="registerPassword">Parolă:<font color='#FF0000'>*</font></string>
     <string name="registerPasswordRepeat">Confirmare parolă:<font color='#FF0000'>*</font></string>
     <string name="registerSex">Sex:</string>
     <string name="registerSports">Sporturi preferate:</string>
     <string name="register_continue">Continuă</string>
     <string name="register_finish">Finalizare Profil</string>
-    <string name="choose_sports">Alege Sporturi</string>
+    <string name="choose_sports">Alege sporturi</string>
     <string name="registerBarriers">Bariere fizice sau psihice:</string>
     <string name="registerInformations">Informații suplimentare:</string>
     <string name="sex_masculine">Masculin</string>
@@ -95,4 +99,8 @@
     <string name="joinEvent">Alăturare</string>
     <string name="eventPrice">Preț (lei):</string>
     <string name="joinEventText">Apasă pe eveniment pentru alăturare</string>
+
+    <string name="title_location_equipment">Locații/Echipamente</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_profile">Contul meu</string>
 </resources>

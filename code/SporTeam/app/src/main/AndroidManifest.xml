@@ -26,12 +26,7 @@
         </activity>
         <activity
             android:name=".PaymentActivity"
-            android:exported="true"/>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme" />
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -54,38 +49,39 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ViewAndEditProfileActivity"
+            android:exported="true"
             android:label="Vizualizare si Editare Profil"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ResetPasswordActivity"
-            android:label="@string/app_name"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ViewEventsActivity"
-            android:label="@string/app_name"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/events_page_title"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".CreateEventActivity"
-            android:label="SporTeam"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/new_event_page_title"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".LocationBookingActivity"
             android:exported="true"
             android:label="@string/location_book_page_title"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".LocationDetailsActivity"
             android:exported="true"
             android:label="@string/location_details_page_title"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".LocationForRentActivity"
             android:exported="true"
             android:label="SporTeam"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".NotificationActivity"
             android:exported="true"
@@ -94,28 +90,28 @@
         <activity
             android:name=".ChatActivity"
             android:exported="true"
-            android:label="SporTeam"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:label="@string/title_chat"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".EquipmentsActivity"
             android:exported="true"
-            android:label="SporTeam"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:label="@string/equipment_page_title"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".EquipmentDetailsActivity"
             android:exported="true"
-            android:label="SporTeam"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:label="@string/equipment_page_title"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".MyAccountActivity"
             android:exported="true"
             android:label="@string/my_account_page_title"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ConversationsActivity"
+        <activity
+            android:name=".ConversationsActivity"
             android:exported="true"
-            android:label="SporTeam"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:label="@string/conversation_title_page"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

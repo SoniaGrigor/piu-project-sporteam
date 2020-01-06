@@ -9,12 +9,16 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Switch;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NotificationActivity extends AppCompatActivity {
 
@@ -31,22 +35,33 @@ public class NotificationActivity extends AppCompatActivity {
         hydrationSwitch = findViewById(R.id.chip_hidratare);
         weatherSwitch = findViewById(R.id.chip_vreme);
         nutritionSwitch = findViewById(R.id.chip_alimentatie);
-        createNotificationChannel();
-    }
 
-    private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "";
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "sporteam", importance);
-            channel.setDescription("our project for piu");
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_setting:
+                        break;
+                    case R.id.navigation_event:
+                        startActivity(new Intent(NotificationActivity.this, ViewEventsActivity.class));
+                        break;
+                    case R.id.navigation_location:
+                        startActivity(new Intent(NotificationActivity.this, LocationBookingActivity.class));
+                        break;
+                    case R.id.navigation_chat:
+                        startActivity(new Intent(NotificationActivity.this, ConversationsActivity.class));
+                        break;
+                    case R.id.navigation_profile:
+                        startActivity(new Intent(NotificationActivity.this, MyAccountActivity.class));
+                        break;
+                }
+                return false;
+            }
+        });
+        Menu menu = navigation.getMenu();
+        MenuItem menuItem = menu.getItem(0);
+        menuItem.setChecked(true);
     }
 
     @Override
@@ -65,7 +80,7 @@ public class NotificationActivity extends AppCompatActivity {
         PendingIntent pendingIntent;
         NotificationCompat.Builder builder;
         if (notifManager == null) {
-            notifManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+            notifManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_HIGH;
@@ -88,8 +103,7 @@ public class NotificationActivity extends AppCompatActivity {
                     .setContentIntent(pendingIntent)
                     .setTicker(aMessage)
                     .setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
-        }
-        else {
+        } else {
             builder = new NotificationCompat.Builder(context, id);
             intent = new Intent(context, nextClass);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -117,7 +131,7 @@ public class NotificationActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-               createNotification("Nu uita sa te hidratezi", NotificationActivity.this, NotificationActivity.class);
+                createNotification("Nu uita sa te hidratezi", NotificationActivity.this, NotificationActivity.class);
             }
         }.start();
 
@@ -132,7 +146,7 @@ public class NotificationActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                createNotification("Vremea e minunata pentru sport. Alege ce vrei sa faci maine.", NotificationActivity.this, MainActivity.class);
+                createNotification("Vremea e minunata pentru sport. Alege ce vrei sa faci maine.", NotificationActivity.this, ViewEventsActivity.class);
             }
         }.start();
     }

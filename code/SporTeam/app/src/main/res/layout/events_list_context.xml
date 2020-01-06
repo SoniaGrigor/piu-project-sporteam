@@ -68,4 +68,14 @@
         android:textColor="@android:color/black"
         android:text="Preț: 5.50 LEI"/>
 
+<!--    <Button
+        android:id="@+id/btn_join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/event_title"
+        android:layout_toEndOf="@id/event_date"
+        android:layout_marginRight="10sp"
+        android:text="Particip"
+        android:textSize="15sp" />-->
+
 </RelativeLayout>

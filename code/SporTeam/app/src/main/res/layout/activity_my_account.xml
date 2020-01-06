@@ -27,7 +27,7 @@
         android:layout_marginStart="34dp"
         android:layout_marginEnd="196dp"
         android:layout_marginBottom="327dp"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <View
         android:layout_width="match_parent"
@@ -154,7 +154,7 @@
         android:layout_marginStart="37dp"
         android:layout_marginEnd="196dp"
         android:layout_marginBottom="152dp"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <ProgressBar
         android:id="@+id/progressBarPasi"
@@ -166,7 +166,7 @@
         android:layout_marginStart="34dp"
         android:layout_marginEnd="196dp"
         android:layout_marginBottom="498dp"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/button_puls"
@@ -189,5 +189,22 @@
         android:layout_marginBottom="289dp"
         app:srcCompat="@drawable/temperature" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="?android:attr/windowBackground"
+            android:foreground="?attr/selectableItemBackground"
+            app:itemBackground="?android:attr/windowBackground"
+            app:itemIconTint="@color/blue"
+            app:itemTextColor="@color/blue"
+            app:menu="@menu/navigation" />
+
+    </RelativeLayout>
 </RelativeLayout>

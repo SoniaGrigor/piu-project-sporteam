@@ -7,9 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.sporteam.model.User;
 import com.example.sporteam.service.UserService;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 
 
@@ -18,11 +25,15 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
     private EditText name, username, email, password, confirmedPassword;
     private UserService userService;
     private boolean conditionOne = false, conditionTwo = false, conditionThree = false, conditionFour = false, conditionFive = false;
+    private FirebaseAuth auth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_first);
+
+        //Get Firebase auth instance
+        auth = FirebaseAuth.getInstance();
 
         userService = UserService.getInstance();
 
@@ -37,11 +48,11 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
         name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus){
-                    if(name.getText().toString().equals("")){
-                        Toast.makeText(getApplication(), "Name can't be left empty!", Toast.LENGTH_SHORT).show();
+                if (!hasFocus) {
+                    if (name.getText().toString().equals("")) {
+                        Toast.makeText(getApplication(), "Numele trebuie completat!", Toast.LENGTH_SHORT).show();
                         conditionOne = false;
-                    }else{
+                    } else {
                         conditionOne = true;
                     }
                 }
@@ -51,20 +62,20 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
         username.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus){
+                if (!hasFocus) {
                     boolean noDuplicate = true;
-                    for (User user : userService.getUsers()){
-                        if(user.getUsername().equals(username.getText().toString())){
-                            Toast.makeText(getApplication(), "This username already exists!", Toast.LENGTH_SHORT).show();
+                    for (User user : userService.getUsers()) {
+                        if (user.getUsername().equals(username.getText().toString())) {
+                            Toast.makeText(getApplication(), "Acest nume de utilizator este deja inregistrat!", Toast.LENGTH_SHORT).show();
                             noDuplicate = false;
                             break;
                         }
                     }
 
-                     if(username.getText().toString().equals("")){
-                        Toast.makeText(getApplication(), "Username can't be left empty!", Toast.LENGTH_SHORT).show();
+                    if (username.getText().toString().equals("")) {
+                        Toast.makeText(getApplication(), "Numele de utilizator trebuie completat!", Toast.LENGTH_SHORT).show();
                         conditionTwo = false;
-                    }else conditionTwo = noDuplicate;
+                    } else conditionTwo = noDuplicate;
                 }
             }
         });
@@ -78,19 +89,19 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
                     if (Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
                         for (User user : userService.getUsers()) {
                             if (user.getEmail().equals(email.getText().toString())) {
-                                Toast.makeText(getApplication(), "This email already exists!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplication(), "Acest email este deja inregistrat!", Toast.LENGTH_SHORT).show();
                                 noDuplicate = false;
                                 break;
                             }
                         }
 
                         if (email.getText().toString().equals("")) {
-                            Toast.makeText(getApplication(), "Email can't be left empty!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplication(), "Email-ul trebuie completat!", Toast.LENGTH_SHORT).show();
                             conditionThree = false;
                         } else conditionThree = noDuplicate;
                     } else {
                         conditionThree = false;
-                        Toast.makeText(getApplication(), "Email has no valid format!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplication(), "Email-ul trebuie sa fie corect!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -99,11 +110,11 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
         password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus){
-                    if(password.getText().toString().equals("")){
-                        Toast.makeText(getApplication(), "Password can't be left empty!", Toast.LENGTH_SHORT).show();
+                if (!hasFocus) {
+                    if (password.getText().toString().equals("")) {
+                        Toast.makeText(getApplication(), "Parola trebuie completat!", Toast.LENGTH_SHORT).show();
                         conditionFour = false;
-                    }else{
+                    } else {
                         conditionFour = true;
                     }
                 }
@@ -113,29 +124,29 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
         confirmedPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus){
-                    if(!confirmedPassword.getText().toString().equals(password.getText().toString())){
+                if (!hasFocus) {
+                    if (!confirmedPassword.getText().toString().equals(password.getText().toString())) {
                         Toast.makeText(getApplication(), "Parola si parola confirmata nu se potrivesc!", Toast.LENGTH_SHORT).show();
                         conditionFive = false;
-                    }else{
+                    } else {
                         conditionFive = true;
                     }
                 }
             }
         });
 
-        continueButton.setOnClickListener(new View.OnClickListener(){
+        continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 clearFocuses();
-                if(conditionOne && conditionTwo && conditionThree && conditionFour && conditionFive){
+                if (conditionOne && conditionTwo && conditionThree && conditionFour && conditionFive) {
                     Intent intent = new Intent(RegisterFirstPageActivity.this, RegisterSecondPageActivity.class);
                     User user = new User(username.getText().toString(), username.getText().toString(),
                             email.getText().toString(), password.getText().toString());
                     String userJson = (new Gson().toJson(user));
                     intent.putExtra("user", userJson);
                     startActivity(intent);
-                }else{
+                } else {
                     Toast.makeText(getApplication(), "Continuarea nu este posibila. Verificati inca o data toate campurile!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -145,21 +156,36 @@ public class RegisterFirstPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clearFocuses();
-                if(conditionOne && conditionTwo && conditionThree && conditionFour && conditionFive){
+                if (conditionOne && conditionTwo && conditionThree && conditionFour && conditionFive) {
                     userService.addNewUser(new User(username.getText().toString(), username.getText().toString(),
                             email.getText().toString(), password.getText().toString()));
                     User user = new User(username.getText().toString(), username.getText().toString(),
                             email.getText().toString(), password.getText().toString());
                     userService.addNewUser(user);
-                    startActivity(new Intent(RegisterFirstPageActivity.this, MyAccountActivity.class));
-                }else{
-                    Toast.makeText(getApplication(), "Profilul nu poate fi creat. Verificati inca o data toate campurile!", Toast.LENGTH_SHORT).show();
-                }
-                }
-            });
-        }
 
-    public void clearFocuses(){
+                    //register in Firebase
+                    auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                            .addOnCompleteListener(RegisterFirstPageActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(RegisterFirstPageActivity.this, "Profilul nu poate fi creat. Verificati inca o data toate campurile!" + task.getException(),
+                                                Toast.LENGTH_SHORT).show();
+                                    } else {
+
+                                        startActivity(new Intent(RegisterFirstPageActivity.this, MyAccountActivity.class));
+                                        finish();
+
+                                    }
+                                }
+                            });
+
+                }
+            }
+        });
+    }
+
+    public void clearFocuses() {
         name.clearFocus();
         username.clearFocus();
         email.clearFocus();

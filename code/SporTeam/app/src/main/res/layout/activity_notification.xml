@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:openDrawer="start">
 
     <LinearLayout
@@ -110,4 +111,22 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="?android:attr/windowBackground"
+            android:foreground="?attr/selectableItemBackground"
+            app:itemBackground="?android:attr/windowBackground"
+            app:itemIconTint="@color/blue"
+            app:itemTextColor="@color/blue"
+            app:menu="@menu/navigation" />
+
+    </RelativeLayout>
 </RelativeLayout>

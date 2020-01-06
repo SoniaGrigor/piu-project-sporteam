@@ -1,29 +1,24 @@
 package com.example.sporteam;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.sporteam.adapter.LocationsAdapter;
-import com.example.sporteam.model.Location;
-import com.example.sporteam.service.LocationService;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.time.LocalDate;
+import com.example.sporteam.model.Location;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.List;
 
 public class LocationForRentActivity extends AppCompatActivity {
 
@@ -43,6 +38,35 @@ public class LocationForRentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_for_rent);
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_setting:
+                        startActivity(new Intent(LocationForRentActivity.this, NotificationActivity.class));
+                        break;
+                    case R.id.navigation_event:
+                        startActivity(new Intent(LocationForRentActivity.this, ViewEventsActivity.class));
+                        break;
+                    case R.id.navigation_location:
+                        startActivity(new Intent(LocationForRentActivity.this, LocationBookingActivity.class));
+                        break;
+                    case R.id.navigation_chat:
+                        startActivity(new Intent(LocationForRentActivity.this, ConversationsActivity.class));
+                        break;
+                    case R.id.navigation_profile:
+                        startActivity(new Intent(LocationForRentActivity.this, MyAccountActivity.class));
+                        break;
+                }
+                return false;
+            }
+        });
+        Menu menu = navigation.getMenu();
+        MenuItem menuItem = menu.getItem(2);
+        menuItem.setChecked(true);
+
 
         final Calendar calendar = Calendar.getInstance();
 
@@ -125,25 +149,24 @@ public class LocationForRentActivity extends AppCompatActivity {
 
     }
 
-    public void confirmRent(View view){
+    public void confirmRent(View view) {
 
-        if(locationName.getText().toString().equals("")){
-            System.out.println("svsvsvhjshvs" + locationName.getText().toString());
+        if (locationName.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Introduceți numele locației!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(locationAddress.getText().toString().equals("")){
+        if (locationAddress.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Introduceti adresa locației!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(ownerName.getText().toString().equals("")){
+        if (ownerName.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Introduceți numele proprietarului!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(ownerPhone.getText().toString().equals("")){
+        if (ownerPhone.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Introduceți numărul de telefon al proprietarului!", Toast.LENGTH_SHORT).show();
             return;
         }
