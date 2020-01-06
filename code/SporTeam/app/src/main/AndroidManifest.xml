@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".LocationForRentActivity"></activity>
         <activity
             android:name=".SplashScreenActivity"
             android:label="@string/app_name"
@@ -76,11 +77,6 @@
             android:name=".LocationDetailsActivity"
             android:exported="true"
             android:label="@string/location_details_page_title"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".LocationForRentActivity"
-            android:exported="true"
-            android:label="SporTeam"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".NotificationActivity"

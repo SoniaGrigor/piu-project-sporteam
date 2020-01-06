@@ -6,52 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".LocationForRentActivity">
 
-    <Button
-        android:id="@+id/locRentLocationsBtn"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/endTime"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:background="#2196F3"
-        android:fontFamily="sans-serif-black"
-        android:text="Locații"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/locRentEquipmentsBtn"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/locRentEquipmentsBtn"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:background="#2196F3"
-        android:fontFamily="sans-serif-black"
-        android:text="Echipamente"
+        android:layout_marginTop="8dp"
+        android:text="Până la ora:"
         android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startTime" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-black"
         android:text="Completați următoarele câmpuri:"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locRentLocationsBtn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/locRentName"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:autoText="false"
         android:contextClickable="false"
         android:elegantTextHeight="false"
@@ -79,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="text"
@@ -108,7 +92,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
         android:text="Proprietar:"
         android:textColor="#000000"
@@ -123,7 +107,7 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="Nume:"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -147,7 +131,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="text"
@@ -175,7 +159,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
         android:text="Disponibilitate:"
         android:textColor="#000000"
@@ -200,7 +184,7 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="De la:"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -212,7 +196,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="date"
@@ -240,7 +224,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif-black"
         android:onClick="confirmRent"
@@ -248,11 +232,51 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/endTimeVal" />
+
+    <TextView
+        android:id="@+id/startTime"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif"
+        android:text="Începând cu ora:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/locRentAvTo" />
+
+    <EditText
+        android:id="@+id/startTimeVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/startTime"
         app:layout_constraintTop_toBottomOf="@+id/locRentAvToVal" />
+
+    <EditText
+        android:id="@+id/endTimeVal"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/endTime"
+        app:layout_constraintTop_toBottomOf="@+id/startTimeVal" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"

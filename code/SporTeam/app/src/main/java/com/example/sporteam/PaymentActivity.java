@@ -17,10 +17,7 @@ import java.util.Calendar;
 
 public class PaymentActivity extends AppCompatActivity {
 
-    private int year, month, day;
-    private DatePickerDialog.OnDateSetListener onDateSetListener;
-    private String expirationDate;
-    EditText cardOwner, cardNumber, cardCvv, cardExpiration;
+    private EditText cardOwner, cardNumber, cardCvv, cardExpiration;
     private int dateYear, dateMonth, dateDay;
     private Calendar expirationDateCalendar;
     private Button confirmButton;
@@ -64,7 +61,7 @@ public class PaymentActivity extends AppCompatActivity {
                 if(!hasFocus){
                     if(cardNumber.getText().length() != 16){
                         conditionTwo = false;
-                        Toast.makeText(PaymentActivity.this, "Numărul de card este invalid! Trebuia să aibă 16 cifre!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PaymentActivity.this, "Numărul de card este invalid! Trebuie să aibă 16 cifre!", Toast.LENGTH_SHORT).show();
                     }else{
                         conditionTwo = true;
                     }
@@ -78,7 +75,7 @@ public class PaymentActivity extends AppCompatActivity {
                 if(!hasFocus){
                     if(cardCvv.getText().length() != 3){
                         conditionThree = false;
-                        Toast.makeText(PaymentActivity.this, "CVV invalid! Trebuia să aibă 3 cifre!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PaymentActivity.this, "CVV invalid! Trebuie să aibă 3 cifre!", Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     conditionThree = true;

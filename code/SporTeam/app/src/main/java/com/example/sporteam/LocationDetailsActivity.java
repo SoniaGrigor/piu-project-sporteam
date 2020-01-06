@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +20,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.w3c.dom.Text;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class LocationDetailsActivity extends AppCompatActivity {
+
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +58,14 @@ public class LocationDetailsActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         Menu menu = navigation.getMenu();
         MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
 
-
         Intent intent = getIntent();
+
+        context = getApplicationContext();
 
         final Location location = (Location) intent.getSerializableExtra("location");
 
@@ -64,6 +75,8 @@ public class LocationDetailsActivity extends AppCompatActivity {
         TextView phone = findViewById(R.id.locDetPhoneVal);
         TextView availableFrom = findViewById(R.id.locDetAvFromVal);
         TextView availableTo = findViewById(R.id.locDetAvToVal);
+        TextView availableBetween = findViewById(R.id.locDetAvBetweenVal);
+        TextView rating = findViewById(R.id.locDetRating);
         Button confirm = findViewById(R.id.bookButton);
 
         name.setText(location.getName());
@@ -72,16 +85,16 @@ public class LocationDetailsActivity extends AppCompatActivity {
         phone.setText(location.getOwnerPhoneNumber());
         availableFrom.setText(location.getAvailableFrom().toString());
         availableTo.setText(location.getAvailableTo().toString());
+        availableBetween.setText(location.getStartTime() + " - " + location.getEndTime());
+        rating.setText(location.getRating());
 
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.putExtra("bookedLocation", location);
-                setResult(Activity.RESULT_OK, intent);
-                finish();
+                ConfirmLocationBooking c = new ConfirmLocationBooking();
+                c.showPopupWindow(v, location, LocationDetailsActivity.this);
             }
         });
-
     }
+
 }

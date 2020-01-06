@@ -1,7 +1,9 @@
 package com.example.sporteam.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Location implements Serializable {
 
@@ -9,20 +11,28 @@ public class Location implements Serializable {
     private String address;
     private String ownerName;
     private String ownerPhoneNumber;
-    private LocalDateTime availableFrom;
-    private LocalDateTime availableTo;
+    private LocalDate availableFrom;
+    private LocalDate availableTo;
+    private LocalTime startTime;
+    private LocalTime endTime;
     private int image;
+    private String observations;
+    private String rating;
 
     public Location() {}
 
-    public Location(String name, String address, String ownerName, String ownerPhoneNumber, LocalDateTime availableFrom, LocalDateTime availableTo, int image) {
+    public Location(String name, String address, String ownerName, String ownerPhoneNumber, LocalDate availableFrom, LocalDate availableTo, LocalTime startTime, LocalTime endTime, int image, String observations, String rating) {
         this.name = name;
         this.address = address;
         this.ownerName = ownerName;
         this.ownerPhoneNumber = ownerPhoneNumber;
         this.availableFrom = availableFrom;
         this.availableTo = availableTo;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.image = image;
+        this.observations = observations;
+        this.rating = rating;
     }
 
     public String getName() {
@@ -53,24 +63,40 @@ public class Location implements Serializable {
         return ownerPhoneNumber;
     }
 
-    public void setPhoneNumber(String ownerPhoneNumber) {
+    public void setOwnerPhoneNumber(String ownerPhoneNumber) {
         this.ownerPhoneNumber = ownerPhoneNumber;
     }
 
-    public LocalDateTime getAvailableFrom() {
+    public LocalDate getAvailableFrom() {
         return availableFrom;
     }
 
-    public void setAvailableFrom(LocalDateTime availableFrom) {
+    public void setAvailableFrom(LocalDate availableFrom) {
         this.availableFrom = availableFrom;
     }
 
-    public LocalDateTime getAvailableTo() {
+    public LocalDate getAvailableTo() {
         return availableTo;
     }
 
-    public void setAvailableTo(LocalDateTime availableTo) {
+    public void setAvailableTo(LocalDate availableTo) {
         this.availableTo = availableTo;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
     }
 
     public int getImage() {
@@ -79,5 +105,21 @@ public class Location implements Serializable {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public String getObservations() {
+        return observations;
+    }
+
+    public void setObservations(String observations) {
+        this.observations = observations;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

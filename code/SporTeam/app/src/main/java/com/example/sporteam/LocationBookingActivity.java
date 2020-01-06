@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.sporteam.adapter.LocationsAdapter;
 import com.example.sporteam.model.Location;
@@ -21,7 +22,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
 
 public class LocationBookingActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +51,10 @@ public class LocationBookingActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         Menu menu = navigation.getMenu();
         MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
-
 
         Button locBtn = findViewById(R.id.placesButton);
         locBtn.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +73,6 @@ public class LocationBookingActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
         List<Location> locations = LocationService.getInstance().getLocations();
 
@@ -98,7 +97,6 @@ public class LocationBookingActivity extends AppCompatActivity {
                     ListView listView = findViewById(R.id.locationList);
                     LocationsAdapter adapter = (LocationsAdapter) listView.getAdapter();
                     listView.setAdapter(adapter);
-                    LocationService.getInstance().removeLocation(location);
                     System.out.println(location.getName());
                     adapter.notifyDataSetChanged();
                 }
