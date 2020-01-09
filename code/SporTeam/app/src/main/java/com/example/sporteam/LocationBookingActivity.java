@@ -93,11 +93,9 @@ public class LocationBookingActivity extends AppCompatActivity {
         switch(requestCode) {
             case (1): {
                 if (resultCode == Activity.RESULT_OK) {
-                    Location location = (Location) data.getSerializableExtra("bookedLocation");
                     ListView listView = findViewById(R.id.locationList);
                     LocationsAdapter adapter = (LocationsAdapter) listView.getAdapter();
                     listView.setAdapter(adapter);
-                    System.out.println(location.getName());
                     adapter.notifyDataSetChanged();
                 }
             }
@@ -109,7 +107,6 @@ public class LocationBookingActivity extends AppCompatActivity {
                     LocationsAdapter adapter = (LocationsAdapter) listView.getAdapter();
                     listView.setAdapter(adapter);
                     LocationService.getInstance().addLocation(location);
-                    System.out.println(location.getName());
                     adapter.notifyDataSetChanged();
                 }
             }

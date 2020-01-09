@@ -6,76 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".LocationBookingActivity">
 
-    <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="30dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.847">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/placesButton"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="169dp"
-                android:layout_height="wrap_content"
-                android:background="#2196F3"
-                android:defaultFocusHighlightEnabled="true"
-                android:fontFamily="sans-serif-black"
-                android:text="LOCAȚII"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/equipmentButton"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:background="#2196F3"
-                android:fontFamily="sans-serif-black"
-                android:text="ECHIPAMENTE"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-
-        </TableRow>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ListView
-                android:id="@+id/locationList"
-                android:layout_width="match_parent"
-                android:layout_height="430dp">
-                <!--                app:layout_constraintEnd_toEndOf="parent">-->
-            </ListView>
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/addLocationButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:onClick="LocationToRent"
-            android:text="ADĂUGARE SPAȚIU NOU"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_marginTop="10sp"
         android:id="@+id/navigation"
@@ -90,4 +20,60 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
+
+    <Button
+        android:id="@+id/placesButton"
+        android:layout_width="208dp"
+        android:layout_height="50dp"
+        android:background="#2196F3"
+        android:fontFamily="sans-serif-black"
+        android:text="LOCAȚII"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/equipmentButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/equipmentButton"
+        android:layout_width="208dp"
+        android:layout_height="50dp"
+        android:background="#2196F3"
+        android:fontFamily="sans-serif-black"
+        android:text="ECHIPAMENTE"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/locationList"
+        android:layout_width="400dp"
+        android:layout_height="450dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/placesButton" />
+
+    <Button
+        android:id="@+id/addLocationButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="LocationToRent"
+        android:text="Adăugare spațiu nou"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/locationList"
+        app:layout_constraintVertical_bias="0.492" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

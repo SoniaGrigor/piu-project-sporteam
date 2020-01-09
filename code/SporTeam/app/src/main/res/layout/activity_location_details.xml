@@ -227,6 +227,7 @@
         android:fontFamily="sans-serif-black"
         android:text="Rezervare locație"
         android:textAlignment="viewStart"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/locDetImg"
         app:layout_constraintEnd_toEndOf="parent"

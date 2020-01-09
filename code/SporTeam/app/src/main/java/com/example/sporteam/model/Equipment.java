@@ -8,14 +8,16 @@ public class Equipment implements Serializable {
     private double price;
     private String description;
     private int image;
+    private int stock;
 
     public Equipment() {}
 
-    public Equipment(String name, double price, String description, int image) {
+    public Equipment(String name, double price, String description, int image, int stock) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.image = image;
+        this.stock = stock;
     }
 
     public String getName() {
@@ -48,5 +50,13 @@ public class Equipment implements Serializable {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 }
