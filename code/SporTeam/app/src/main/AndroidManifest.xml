@@ -108,10 +108,15 @@
             android:exported="true"
             android:label="@string/conversation_title_page"
             android:theme="@style/AppTheme" />
-        <activity android:name=".MonitorizareActivity"
+        <activity
+            android:name=".MonitorizareActivity"
             android:exported="true"
             android:label="Monitorizare sanatate"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".AddReviewActivity"
+            android:exported="true"
+            android:label="Monitorizare sanatate"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
