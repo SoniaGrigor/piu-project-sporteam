@@ -3,6 +3,7 @@ package com.example.sporteam;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,8 +13,11 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-import java.util.Calendar;
 
+import com.example.sporteam.model.Equipment;
+import com.example.sporteam.service.EquipmentService;
+
+import java.util.Calendar;
 
 public class PaymentActivity extends AppCompatActivity {
 
@@ -28,6 +32,10 @@ public class PaymentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        Intent intent = getIntent();
+        final Equipment eq = (Equipment) intent.getSerializableExtra("selectedEq");
+        final int quantity = intent.getIntExtra("selectedQty", 1);
 
         cardOwner = findViewById(R.id.cardOwner);
         cardNumber = findViewById(R.id.cardNumber);
@@ -108,9 +116,9 @@ public class PaymentActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(getApplication(), "Plată efectuată cu succes!", Toast.LENGTH_SHORT).show();
                 }
+                EquipmentService.getInstance().updateStock(quantity, eq);
                 finish();
                 }else{
-
                     Toast.makeText(PaymentActivity.this, "Plata nu se poate efectua! Verificați încă o dată toate câmpurile", Toast.LENGTH_SHORT).show();
                 }
             }

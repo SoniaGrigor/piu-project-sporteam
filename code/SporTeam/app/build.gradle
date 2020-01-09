@@ -48,7 +48,10 @@ dependencies {
 
     //Notification
 
+    implementation 'com.github.travijuu:numberpicker:1.0.7'
 
+    //color picker
+//    implementation "dev.sasikanth:colorsheet:1.0.1"
 }
 
 //Firebase

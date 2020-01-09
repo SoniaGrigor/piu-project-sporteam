@@ -238,7 +238,6 @@ public class LocationForRentActivity extends AppCompatActivity {
     public void confirmRent(View view){
 
         if(locationName.getText().toString().equals("")){
-            System.out.println("svsvsvhjshvs" + locationName.getText().toString());
             Toast.makeText(getApplicationContext(), "Introduceți numele locației!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -275,6 +274,11 @@ public class LocationForRentActivity extends AppCompatActivity {
 
         if(endTime.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(), "Introduceți datele referitoare la disponibilitate!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(LocalDate.of(availableFromYear, availableFromMonth + 1, availableFromDay).isAfter(LocalDate.of(availableToYear, availableToMonth + 1, availableToDay))){
+            Toast.makeText(getApplicationContext(), "Data de început trebuie să fie anterioară datei de sfârșit!", Toast.LENGTH_LONG).show();
             return;
         }
 
