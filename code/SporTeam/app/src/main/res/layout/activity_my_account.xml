@@ -45,7 +45,8 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="494dp"
         android:onClick="onSynchronisedStepsClicked"
-        android:text="Sincronizare" />
+        android:text="Sincronizare"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView_title_temperatura"
@@ -79,7 +80,8 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="318dp"
         android:onClick="onSynchronisedTemperatureClicked"
-        android:text="Sincronizare" />
+        android:text="Sincronizare"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView_info_temperatura"
@@ -177,7 +179,8 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="146dp"
         android:onClick="onSynchronisedPulseClicked"
-        android:text="Sincronizare" />
+        android:text="Sincronizare"
+        android:textStyle="bold"/>
 
     <ImageView
         android:id="@+id/imageView_temperatura"
