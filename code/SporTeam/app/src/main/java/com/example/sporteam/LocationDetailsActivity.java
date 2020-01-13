@@ -78,7 +78,6 @@ public class LocationDetailsActivity extends AppCompatActivity {
         TextView availableBetween = findViewById(R.id.locDetAvBetweenVal);
         TextView rating = findViewById(R.id.locDetRating);
         Button confirm = findViewById(R.id.bookButton);
-        Button addReview = findViewById(R.id.addReviewButton);
 
         name.setText(location.getName());
         address.setText(location.getAddress());
@@ -94,15 +93,6 @@ public class LocationDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ConfirmLocationBooking c = new ConfirmLocationBooking();
                 c.showPopupWindow(v, location, LocationDetailsActivity.this);
-            }
-        });
-
-        addReview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AddReviewActivity.class);
-                intent.putExtra("locationForReview", location);
-                startActivity(intent);
             }
         });
     }
