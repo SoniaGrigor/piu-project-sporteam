@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "921280545652",
+    "firebase_url": "https://sportea-piu.firebaseio.com",
+    "project_id": "sportea-piu",
+    "storage_bucket": "sportea-piu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921280545652:android:074e831fe53f2759c4e221",
+        "android_client_info": {
+          "package_name": "com.example.sporteam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921280545652-uh4p4kb6805nva9s1ik6oeqm5cb084tn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgQdZPnKlwZ-KWNRZFgLYvRlFWco0W_bA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921280545652-uh4p4kb6805nva9s1ik6oeqm5cb084tn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

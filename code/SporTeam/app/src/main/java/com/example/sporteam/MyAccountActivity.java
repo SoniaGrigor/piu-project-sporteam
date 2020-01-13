@@ -1,5 +1,6 @@
 package com.example.sporteam;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -10,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -79,18 +81,42 @@ public class MyAccountActivity extends AppCompatActivity {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                progressBar.setVisibility(View.VISIBLE);
-                textViewInfo.setVisibility(View.GONE);
             }
 
             @Override
             public void onFinish() {
-                textViewInfo.setVisibility(View.VISIBLE);
-                textViewInfo.setText("36.5 C");
-                progressBar.setVisibility(View.GONE);
+                new AlertDialog.Builder(MyAccountActivity.this)
+                        .setTitle("     Conexiune bluetooth")
+                        .setMessage("Conexiunea bluetooth este dezactivata.\nActivati bluetooth-ul.")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                new CountDownTimer(7000, 1000) {
+                                    ProgressBar progressBar = findViewById(R.id.progressBarTemperatura);
+                                    TextView textViewInfo = findViewById(R.id.textView_info_temperatura);
 
+                                    @Override
+                                    public void onTick(long millisUntilFinished) {
+                                        progressBar.setVisibility(View.VISIBLE);
+                                        textViewInfo.setVisibility(View.GONE);
+                                    }
+
+                                    @Override
+                                    public void onFinish() {
+                                        textViewInfo.setVisibility(View.VISIBLE);
+                                        textViewInfo.setText("36.5 C");
+                                        progressBar.setVisibility(View.GONE);
+
+                                    }
+                                }.start();
+
+                            }
+                        })
+                        .setIcon(R.drawable.ic_bluetooth_disabled_black_18dp)
+                        .create()
+                        .show();
             }
         }.start();
+
     }
 
     public void onSynchronisedPulseClicked(View view) {
