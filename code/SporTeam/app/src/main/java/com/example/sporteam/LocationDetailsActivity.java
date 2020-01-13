@@ -97,4 +97,9 @@ public class LocationDetailsActivity extends AppCompatActivity {
         });
     }
 
+    public void addReview(View view){
+        Intent intent = new Intent(LocationDetailsActivity.this, AddReviewActivity.class);
+        startActivity(intent);
+    }
+
 }

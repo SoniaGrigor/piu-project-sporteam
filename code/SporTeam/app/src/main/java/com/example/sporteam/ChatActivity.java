@@ -69,10 +69,15 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     public void sendMessage(View view) {
-//        String message = editText.getText().toString();
-//        if (message.length() > 0) {
-//            editText.getText().clear();
-//        }
+        EditText editText = findViewById(R.id.editText);
+        String message = editText.getText().toString();
+        System.out.println(message);
+        if (message.length() > 0) {
+            messageList.add(new Message(message, new MemberData("Dani", R.drawable.avatar), true));
+            messageAdapter.add(new Message(message, new MemberData("Dani", R.drawable.avatar), true));
+            messagesView.setSelection(messagesView.getCount() - 1);
+            editText.setText("");
+        }
     }
 
 }
