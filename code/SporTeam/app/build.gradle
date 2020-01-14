@@ -51,7 +51,10 @@ dependencies {
     implementation 'com.github.travijuu:numberpicker:1.0.7'
 
     //color picker
-//    implementation "dev.sasikanth:colorsheet:1.0.1"
+//    implementation "dev.sasikanth:colorsheet:1..20.1"
+
+    //For card payment form
+    implementation 'com.craftman.cardform:cardform:0.0.2'
 }
 
 //Firebase

@@ -29,7 +29,6 @@ public class ViewEventsActivity extends AppCompatActivity {
     private EventService eventService;
     private Button newEventButton;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstaceState) {
         super.onCreate(savedInstaceState);
@@ -81,6 +80,7 @@ public class ViewEventsActivity extends AppCompatActivity {
 
                 if (paymentMethod.equals("Plată cu cardul")) {
                     Intent intent = new Intent(ViewEventsActivity.this, PaymentActivity.class);
+                    intent.putExtra("price", currentItem.getEventPrice());
                     startActivityForResult(intent, 1);
                 } else {
                     Toast.makeText(ViewEventsActivity.this, "Felicitări! Te-ai alăturat cu succes la acest eveniment", Toast.LENGTH_SHORT).show();
@@ -104,5 +104,4 @@ public class ViewEventsActivity extends AppCompatActivity {
         finish();
         startActivity(getIntent());
     }
-
 }
