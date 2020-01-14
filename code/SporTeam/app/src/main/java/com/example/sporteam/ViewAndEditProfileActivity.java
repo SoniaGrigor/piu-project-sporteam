@@ -7,18 +7,26 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.sporteam.model.User;
 import com.example.sporteam.service.UserService;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -39,7 +47,7 @@ public class ViewAndEditProfileActivity extends AppCompatActivity {
     boolean conditionOne = true, conditionTwo = true;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_and_edit_profile);
 
@@ -54,23 +62,52 @@ public class ViewAndEditProfileActivity extends AppCompatActivity {
         saveButton = findViewById(R.id.saveProfileButton);
         sportsButton = findViewById(R.id.editSports);
 
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_setting:
+                        startActivity(new Intent(ViewAndEditProfileActivity.this, NotificationActivity.class));
+                        break;
+                    case R.id.navigation_event:
+                        startActivity(new Intent(ViewAndEditProfileActivity.this, ViewEventsActivity.class));
+                        break;
+                    case R.id.navigation_location:
+                        startActivity(new Intent(ViewAndEditProfileActivity.this, LocationBookingActivity.class));
+                        break;
+                    case R.id.navigation_chat:
+                        startActivity(new Intent(ViewAndEditProfileActivity.this, ConversationsActivity.class));
+                        break;
+                    case R.id.navigation_profile:
+                        startActivity(new Intent(ViewAndEditProfileActivity.this, MyAccountActivity.class));
+                        break;
+                }
+                return false;
+            }
+        });
+        Menu menu = navigation.getMenu();
+        MenuItem menuItem = menu.getItem(4);
+        menuItem.setChecked(true);
+
+
         List<User> users = userService.getUsers();
 
-        for(User user: users){
-            if(user.getUsername().equals(username.getText().toString())){
+        for (User user : users) {
+            if (user.getUsername().equals(username.getText().toString())) {
                 username.setText(user.getUsername());
                 name.setText(user.getName());
                 email.setText(user.getEmail());
 
-                if(user.getAge()>0) {
+                if (user.getAge() > 0) {
                     age.setText(user.getAge() + "");
-                }else{
+                } else {
                     age.setText("");
                 }
 
                 List<String> userSports = user.getSports();
 
-                if(userSports!=null) {
+                if (userSports != null) {
                     for (int i = 0; i < userSports.size(); i++) {
                         if (userSports.contains(sports[i].toString())) {
                             selectedSports[i] = true;
@@ -79,9 +116,9 @@ public class ViewAndEditProfileActivity extends AppCompatActivity {
                 }
 
                 String userSex = user.getSex();
-                if(userSex.equals("Masculin")){
+                if (userSex.equals("Masculin")) {
                     sexRadioGroup.check(R.id.editSexM);
-                }else{
+                } else {
                     sexRadioGroup.check(R.id.editSexF);
                 }
 
@@ -121,10 +158,10 @@ public class ViewAndEditProfileActivity extends AppCompatActivity {
         age.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus){
-                    if(age.getText().toString().matches("\\d+(?:\\.\\d+)?")){
+                if (!hasFocus) {
+                    if (age.getText().toString().matches("\\d+(?:\\.\\d+)?")) {
                         conditionTwo = true;
-                    }else{
+                    } else {
                         Toast.makeText(getApplication(), "Varsta trebuie sa fie un numar intreg!", Toast.LENGTH_SHORT).show();
                         conditionTwo = false;
                     }
@@ -137,7 +174,7 @@ public class ViewAndEditProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 name.clearFocus();
                 age.clearFocus();
-                if(conditionOne && conditionTwo){
+                if (conditionOne && conditionTwo) {
 
                     int radioId = sexRadioGroup.getCheckedRadioButtonId();
                     sexRadioButton = findViewById(radioId);
@@ -152,14 +189,14 @@ public class ViewAndEditProfileActivity extends AppCompatActivity {
                     currentUser.setProfileImage(profileImage);
 
                     List<String> newSports = new ArrayList<String>();
-                    for(int i=0; i<sports.length; i++){
-                        if(selectedSports[i]){
+                    for (int i = 0; i < sports.length; i++) {
+                        if (selectedSports[i]) {
                             newSports.add(sports[i].toString());
                         }
                     }
 
                     currentUser.setSports(newSports);
-                }else{
+                } else {
                     Toast.makeText(getApplication(), "Profilul nu poate fi editat. Verificați încă o dată toate câmpurile!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -192,12 +229,12 @@ public class ViewAndEditProfileActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == PICK_IMAGE && resultCode == RESULT_OK){
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK) {
             imageUri = data.getData();
-            try{
+            try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
                 profileImage.setImageBitmap(bitmap);
             } catch (IOException e) {
@@ -205,4 +242,9 @@ public class ViewAndEditProfileActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void navigateToMyAccountAccount(View view){
+        startActivity(new Intent(ViewAndEditProfileActivity.this, MyAccountActivity.class));
+    }
+
 }

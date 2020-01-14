@@ -145,4 +145,9 @@ public class MyAccountActivity extends AppCompatActivity {
     public void onBackPressed() {
         finish();
     }
+
+    public void navigateToEditAccount(View view){
+        startActivity(new Intent(MyAccountActivity.this, ViewAndEditProfileActivity.class));
+
+    }
 }

@@ -9,7 +9,6 @@ import java.util.List;
 
 public class MessageService {
     public static List<Message> messages = new ArrayList<>();
-    public static List<MemberData> memberData = new ArrayList<>();
 
     public static ArrayList<Message> initMessages() {
         messages.add(new Message("Salut!", new MemberData("Dani", R.drawable.avatar), false));
@@ -21,6 +20,7 @@ public class MessageService {
     }
 
     public static ArrayList<MemberData> initConversations() {
+        List<MemberData> memberData = new ArrayList<>();
         memberData.add(new MemberData("Dani", R.drawable.avatar));
         memberData.add(new MemberData("Sonia", R.drawable.avatar_girl));
         memberData.add(new MemberData("Maria", R.drawable.avatar_girl));
