@@ -11,11 +11,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sporteam.adapter.LocationsAdapter;
 import com.example.sporteam.model.Location;
+import com.example.sporteam.service.LocationService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.w3c.dom.Text;
@@ -28,6 +31,8 @@ import java.time.format.DateTimeFormatter;
 public class LocationDetailsActivity extends AppCompatActivity {
 
     private Context context;
+    private Location location;
+    private TextView rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +72,7 @@ public class LocationDetailsActivity extends AppCompatActivity {
 
         context = getApplicationContext();
 
-        final Location location = (Location) intent.getSerializableExtra("location");
+        location = (Location) intent.getSerializableExtra("location");
 
         TextView name = findViewById(R.id.locDetNameVal);
         TextView address = findViewById(R.id.locDetAddressVal);
@@ -76,8 +81,9 @@ public class LocationDetailsActivity extends AppCompatActivity {
         TextView availableFrom = findViewById(R.id.locDetAvFromVal);
         TextView availableTo = findViewById(R.id.locDetAvToVal);
         TextView availableBetween = findViewById(R.id.locDetAvBetweenVal);
-        TextView rating = findViewById(R.id.locDetRating);
+        rating = findViewById(R.id.locDetRating);
         Button confirm = findViewById(R.id.bookButton);
+        Button addReview = findViewById(R.id.addReviewButton);
 
         name.setText(location.getName());
         address.setText(location.getAddress());
@@ -95,6 +101,26 @@ public class LocationDetailsActivity extends AppCompatActivity {
                 c.showPopupWindow(v, location, LocationDetailsActivity.this);
             }
         });
+
+        addReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AddReviewActivity.class);
+                intent.putExtra("locationForReview", location);
+                startActivityForResult(intent, 3);
+            }
+        });
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+
+        switch(requestCode) {
+            case (3): {
+                if (resultCode == Activity.RESULT_OK) {
+                    rating.setText(data.getStringExtra("newRating"));
+                }
+            }
+        }
     }
 
     public void addReview(View view){

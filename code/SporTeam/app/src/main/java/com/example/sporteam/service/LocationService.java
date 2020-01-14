@@ -3,6 +3,7 @@ package com.example.sporteam.service;
 import com.example.sporteam.R;
 import com.example.sporteam.model.Location;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -94,6 +95,30 @@ public class LocationService {
             Location loc = iterator.next();
             if(loc.getName().equals(location.getName()) && loc.getAddress().equals(location.getAddress())){
                 locations.remove(loc);
+                break;
+            }
+        }
+    }
+
+    public void addLocationReview(Location loc, String obs){
+        Iterator<Location> iterator = locations.iterator();
+        while(iterator.hasNext()){
+            Location location = iterator.next();
+            if(loc.getName().equals(location.getName()) && loc.getAddress().equals(location.getAddress())){
+                location.setReviews(obs);
+                break;
+            }
+        }
+    }
+
+    public void addLocationRating(Location loc, double stars){
+        Iterator<Location> iterator = locations.iterator();
+        while(iterator.hasNext()){
+            Location location = iterator.next();
+            if(loc.getName().equals(location.getName()) && loc.getAddress().equals(location.getAddress())){
+                DecimalFormat df = new DecimalFormat("#.#");
+                stars = Double.valueOf(df.format(stars));
+                location.setRating(stars + "/5");
                 break;
             }
         }
