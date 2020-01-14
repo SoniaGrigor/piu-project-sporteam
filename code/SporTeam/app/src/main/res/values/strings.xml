@@ -103,4 +103,5 @@
     <string name="title_location_equipment">Locații/Echipamente</string>
     <string name="title_chat">Chat</string>
     <string name="title_profile">Contul meu</string>
+    <string name="saveProfile">Salvează profil</string>
 </resources>

@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue">
+    android:background="@color/white">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
         android:fillViewport="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="100dp">
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="-200dp">
 
             <TextView
                 android:id="@+id/sportTeamProfile"
@@ -37,23 +36,44 @@
                 android:src="@drawable/profile_picture" />
 
             <TextView
-                android:id="@+id/viewProfileName"
+                android:id="@+id/viewProfileUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/viewProfileImage"
                 android:layout_marginTop="42dp"
+                android:text="@string/registerUsername"/>
+
+            <EditText
+                android:id="@+id/editUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/viewProfileUsername"
+                android:padding="10dip"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/viewProfileImage"
+                android:layout_marginEnd="-272dp"
+                android:inputType="none"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <TextView
+                android:id="@+id/viewProfileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewProfileUsername"
+                android:layout_marginTop="42dp"
                 android:text="@string/registerName" />
 
             <EditText
+                android:id="@+id/editName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/viewProfileName"
                 android:padding="10dip"
                 android:layout_marginTop="30dp"
-                android:layout_below="@+id/viewProfileImage"
+                android:layout_below="@+id/viewProfileUsername"
                 android:layout_marginEnd="-272dp"
-                android:inputType="text"
-                android:text="Vincze Robert" />
+                android:inputType="text"/>
 
             <TextView
                 android:id="@+id/viewProfileEmail"
@@ -64,6 +84,7 @@
                 android:text="@string/registerEmail" />
 
             <EditText
+                android:id="@+id/editEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/viewProfileEmail"
@@ -71,8 +92,9 @@
                 android:layout_marginTop="30dp"
                 android:layout_below="@id/viewProfileName"
                 android:layout_marginEnd="-272dp"
-                android:inputType="text"
-                android:text="robi997@yahoo.com" />
+                android:inputType="none"
+                android:clickable="false"
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/viewProfileSex"
@@ -82,16 +104,29 @@
                 android:layout_marginTop="42dp"
                 android:text="@string/registerSex"/>
 
-            <EditText
+            <RadioGroup
+                android:id="@+id/editSex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/viewProfileSex"
-                android:padding="10dip"
-                android:layout_marginTop="30dp"
-                android:layout_below="@+id/viewProfileEmail"
-                android:layout_marginEnd="-272dp"
-                android:inputType="text"
-                android:text="masculin"/>
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/viewProfileEmail"
+                android:layout_toEndOf="@id/viewProfileSex">
+
+                <RadioButton
+                    android:id="@+id/editSexM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sex_masculine"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/editSexF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sex_feminine" />
+
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/viewProfileAge"
@@ -102,6 +137,7 @@
                 android:text="@string/registerAge"/>
 
             <EditText
+                android:id="@+id/editAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/viewProfileAge"
@@ -109,8 +145,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_below="@+id/viewProfileSex"
                 android:layout_marginEnd="-272dp"
-                android:inputType="text"
-                android:text="22"/>
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/viewProfileSports"
@@ -121,7 +156,7 @@
                 android:text="@string/registerSports" />
 
             <Button
-                android:id="@+id/viewProfileChangeSports"
+                android:id="@+id/editSports"
                 android:layout_width="212dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -140,16 +175,14 @@
                 android:text="@string/registerBarriers" />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:id="@+id/editBarriers"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/viewProfileSports"
+                android:layout_marginTop="30dp"
                 android:layout_toEndOf="@id/viewProfileBarriers"
                 android:padding="10dip"
-                android:layout_marginTop="30dp"
-                android:layout_below="@+id/viewProfileSports"
-                android:layout_marginEnd="-272dp"
-                android:inputType="text"
-                android:text="Sufar de miopie de grad mediu. Din aceasta cauza trebuie sa port neaparat ochelari cand practic
-            orice sport, asadar de multe ori imi este frica sa nu fiu lovit in cap de o minge."/>
+                android:inputType="text"/>
 
             <TextView
                 android:id="@+id/viewProfileInformation"
@@ -160,15 +193,24 @@
                 android:text="@string/registerInformations" />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:id="@+id/editInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/viewProfileInformation"
                 android:padding="10dip"
                 android:layout_marginTop="30dp"
                 android:layout_below="@+id/viewProfileBarriers"
                 android:layout_marginEnd="-272dp"
-                android:inputType="text"
-                android:text="Sunt o persoana foarte sociabila dar devin foarte nervos  daca am de a face cu oameni tampiti."/>
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/saveProfileButton"
+                android:layout_width="212dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/viewProfileInformation"
+                android:layout_marginTop="79dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/saveProfile"/>
         </RelativeLayout>
     </ScrollView>
-</LinearLayout>
+</RelativeLayout>
