@@ -1,18 +1,18 @@
 package com.example.sporteam;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.media.RatingCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sporteam.model.Location;
 import com.example.sporteam.service.LocationService;
@@ -54,7 +54,7 @@ public class AddReviewActivity extends AppCompatActivity {
             }
         });
         Menu menu = navigation.getMenu();
-        MenuItem menuItem = menu.getItem(3);
+        MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
 
         RatingBar rating = (RatingBar) findViewById(R.id.ratingBar);
@@ -84,8 +84,13 @@ public class AddReviewActivity extends AppCompatActivity {
                 String newR = stars + "/5";
                 intent.putExtra("newRating", newR);
                 setResult(Activity.RESULT_OK, intent);
+                Toast.makeText(getApplicationContext(), "Recenzia a fost adăugată cu succes.", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

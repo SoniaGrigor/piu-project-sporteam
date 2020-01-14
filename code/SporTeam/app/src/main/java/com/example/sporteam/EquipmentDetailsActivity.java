@@ -97,10 +97,9 @@ public class EquipmentDetailsActivity extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PaymentActivity.class);
-                intent.putExtra("selectedEq", equipment);
-                intent.putExtra("selectedQty", selectedQuantity);
-                startActivity(intent);
+                Intent newIntent = new Intent(EquipmentDetailsActivity.this, PaymentActivity.class);
+                newIntent.putExtra("selectedEqPrice", (equipment.getPrice() * selectedQuantity) + " Lei");
+                startActivityForResult(newIntent, 2);
             }
         });
     }

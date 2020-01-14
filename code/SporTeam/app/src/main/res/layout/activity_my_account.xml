@@ -12,7 +12,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="270dp"
         android:layout_marginBottom="556dp"
-        android:text="Pasi"
+        android:text="Pași"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -56,7 +56,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="241dp"
         android:layout_marginBottom="381dp"
-        android:text="Tempertura"
+        android:text="Temperatură"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -91,7 +91,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="110dp"
         android:layout_marginBottom="323dp"
-        android:text="37.5 C"
+        android:text="37.5 &#xb0;C"
         android:textSize="18sp" />
 
     <TextView

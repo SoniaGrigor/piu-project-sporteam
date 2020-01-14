@@ -66,7 +66,7 @@ public class MyAccountActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 textViewInfo.setVisibility(View.VISIBLE);
-                textViewInfo.setText("14311 pasi");
+                textViewInfo.setText("14311 pași");
                 progressBar.setVisibility(View.GONE);
 
             }
@@ -87,7 +87,7 @@ public class MyAccountActivity extends AppCompatActivity {
             public void onFinish() {
                 new AlertDialog.Builder(MyAccountActivity.this)
                         .setTitle("     Conexiune bluetooth")
-                        .setMessage("Conexiunea bluetooth este dezactivata.\nActivati bluetooth-ul.")
+                        .setMessage("Conexiunea bluetooth este dezactivată.\nActivați bluetooth-ul.")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 new CountDownTimer(7000, 1000) {
@@ -103,7 +103,7 @@ public class MyAccountActivity extends AppCompatActivity {
                                     @Override
                                     public void onFinish() {
                                         textViewInfo.setVisibility(View.VISIBLE);
-                                        textViewInfo.setText("36.5 C");
+                                        textViewInfo.setText("36.5 \u2103");
                                         progressBar.setVisibility(View.GONE);
 
                                     }

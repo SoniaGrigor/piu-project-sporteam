@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -42,7 +44,18 @@ public class MonitorizareActivity extends AppCompatActivity {
             }
         });
         Menu menu = navigation.getMenu();
-        MenuItem menuItem = menu.getItem(3);
+        MenuItem menuItem = menu.getItem(0);
         menuItem.setChecked(true);
+    }
+
+    public void confirmBodyInformation(View view) {
+        Toast.makeText(getApplicationContext(), "Datele dumneavoastre au fost înregistrate!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(MonitorizareActivity.this, ViewEventsActivity.class));
+        finish();
+    }
+
+    public void navigateToNotificationActivity(View view){
+        startActivity(new Intent(MonitorizareActivity.this, NotificationActivity.class));
+        finish();
     }
 }

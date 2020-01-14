@@ -48,7 +48,7 @@
     <string name="reset_password_page_title">Resetare parolă</string>
     <string name="events_page_title">Evenimente</string>
     <string name="new_event_page_title">Eveniment nou</string>
-    <string name="location_book_page_title">Închirează locație</string>
+    <string name="location_book_page_title">Închiriază locație</string>
     <string name="location_details_page_title">Detalii locație</string>
     <string name="notification_page_title">Notificări</string>
     <string name="equipment_page_title">Echipamente</string>
@@ -95,7 +95,7 @@
     <string name="cvv">CVV:</string>
     <string name="cardExpirationDate">Data expirării:</string>
     <string name="confirm">Confirmă</string>
-    <string name="createNewEvent">Creează Eveniment Nou</string>
+    <string name="createNewEvent">Creează eveniment nou</string>
     <string name="joinEvent">Alăturare</string>
     <string name="eventPrice">Preț (lei):</string>
     <string name="joinEventText">Apasă pe eveniment pentru alăturare</string>
@@ -103,4 +103,5 @@
     <string name="title_location_equipment">Locații/Echipamente</string>
     <string name="title_chat">Chat</string>
     <string name="title_profile">Contul meu</string>
+    <string name="saveProfile">Salvează profil</string>
 </resources>
