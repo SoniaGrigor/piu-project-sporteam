@@ -9,13 +9,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:openDrawer="start">
 
+    <Button
+        android:id="@+id/notificationsButton"
+        android:layout_width="208dp"
+        android:layout_height="50dp"
+        android:background="#2196F3"
+        android:fontFamily="sans-serif-black"
+        android:text="Notificări"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/equipmentButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/healthButton"
+        android:layout_width="208dp"
+        android:layout_height="50dp"
+        android:background="#2196F3"
+        android:fontFamily="sans-serif-black"
+        android:text="Monitorizare sănătate"
+        android:layout_toEndOf="@+id/notificationsButton"
+        android:textSize="18sp"
+        android:onClick="navigateToMonioriseActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_below="@+id/notificationsButton"
         android:orientation="vertical">
 
         <TextView
@@ -34,7 +59,7 @@
             android:id="@+id/textView_details_vreme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Informatii despre vremea de maine"
+            android:text="Informații despre vremea de mâine"
             android:textColor="@android:color/black"
             android:layout_marginStart="25sp"
             android:textSize="18sp" />
@@ -67,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25sp"
-            android:text="Notificari cand sa te hidratezi"
+            android:text="Notificări când să te hidratezi"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -89,7 +114,7 @@
             android:id="@+id/textView_titlu_alimenttie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Plan de alimentatie"
+            android:text="Plan de alimentație"
             android:textColor="@android:color/black"
             android:textSize="24sp"
             android:layout_marginStart="25sp"
@@ -100,7 +125,7 @@
             android:layout_marginStart="25sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sugestii despre mancare, miscare"
+            android:text="Sugestii despre mâncare și miscare"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 

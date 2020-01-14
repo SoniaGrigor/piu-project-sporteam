@@ -9,13 +9,37 @@
     <TextView
         android:id="@+id/textView5"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
-        android:text="Sănătate și sport"
         android:textColor="#000000"
         android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/notificationsButton2"
+        android:layout_width="208dp"
+        android:layout_height="50dp"
+        android:background="#2196F3"
+        android:fontFamily="sans-serif-black"
+        android:text="Notificări"
+        android:textSize="18sp"
+        android:onClick="navigateToNotificationActivity"
+        app:layout_constraintEnd_toStartOf="@+id/equipmentButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/healthButton2"
+        android:layout_width="208dp"
+        android:layout_height="50dp"
+        android:background="#2196F3"
+        android:fontFamily="sans-serif-black"
+        android:text="Monitorizare sănătate"
+        android:layout_toEndOf="@+id/notificationsButton"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/inaltimeLabel"
@@ -27,11 +51,11 @@
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/healthButton2" />
 
     <TextView
         android:id="@+id/masaCorporalaLabel"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -77,7 +101,7 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toEndOf="@+id/masaCorporalaLabel"
         app:layout_constraintTop_toBottomOf="@+id/inaltime" />
 
@@ -95,8 +119,8 @@
 
     <TextView
         android:id="@+id/masaCorporalaDoritaLabel"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_width="170dp"
+        android:layout_height="43dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Masă corporală dorită:"
@@ -114,7 +138,7 @@
         android:ems="10"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toEndOf="@+id/masaCorporalaDoritaLabel"
         app:layout_constraintTop_toBottomOf="@+id/masaCorporala" />
 
@@ -169,7 +193,7 @@
 
     <TextView
         android:id="@+id/cantitateApaLabel"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -189,7 +213,7 @@
         android:ems="10"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toEndOf="@+id/cantitateApaLabel"
         app:layout_constraintTop_toBottomOf="@+id/nrPasi" />
 
@@ -199,7 +223,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="128dp"
         android:layout_marginTop="8dp"
-        android:text="l"
+        android:text="litri"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@id/cantitateApa"
@@ -212,6 +236,8 @@
         android:layout_marginStart="128dp"
         android:layout_marginBottom="100dp"
         android:text="Confirmă"
+        android:textStyle="bold"
+        android:onClick="confirmBodyInformation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cantitateApaLabel"

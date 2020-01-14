@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -42,7 +44,17 @@ public class AddReviewActivity extends AppCompatActivity {
             }
         });
         Menu menu = navigation.getMenu();
-        MenuItem menuItem = menu.getItem(3);
+        MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
+    }
+
+    public void sendReview(View view){
+        Toast.makeText(view.getContext(), "Recenzia a fost adăugată cu succes.", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

@@ -12,11 +12,11 @@ public class MessageService {
     public static List<MemberData> memberData = new ArrayList<>();
 
     public static ArrayList<Message> initMessages() {
-        messages.add(new Message("Salut", new MemberData("Dani", R.drawable.avatar), false));
-        messages.add(new Message("Cf", new MemberData("Dani",R.drawable.avatar), false));
-        messages.add(new Message("Imi fac proiectul la PIU", new MemberData("Dani",R.drawable.avatar), true));
-        messages.add(new Message("Si tu?", new MemberData("Dani",R.drawable.avatar), false));
-        messages.add(new Message(":)))", new MemberData("Dani",R.drawable.avatar), true));
+        messages.add(new Message("Salut!", new MemberData("Dani", R.drawable.avatar), false));
+        messages.add(new Message("Ce faci?", new MemberData("Dani",R.drawable.avatar), false));
+        messages.add(new Message("Lucrez la proiectul pentru PIU.", new MemberData("Dani",R.drawable.avatar), true));
+        messages.add(new Message("Și tu?", new MemberData("Dani",R.drawable.avatar), false));
+        messages.add(new Message("Da. Tu ai terminat?", new MemberData("Dani",R.drawable.avatar), true));
         return (ArrayList<Message>) messages;
     }
 

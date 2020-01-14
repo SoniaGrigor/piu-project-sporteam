@@ -37,20 +37,20 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterSecondPageActivity"
-            android:label="Cont nou - Informatii suplimentare"
+            android:label="Cont nou - Informații suplimentare"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterThirdPageActivity"
-            android:label="Cont nou - Informatii suplimentare 2"
+            android:label="Cont nou - Informații suplimentare 2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterFourthPageActivity"
-            android:label="Cont nou - Informatii suplimentare 3"
+            android:label="Cont nou - Informații suplimentare 3"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ViewAndEditProfileActivity"
             android:exported="true"
-            android:label="Vizualizare si Editare Profil"
+            android:label="Editare Profil"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ResetPasswordActivity"

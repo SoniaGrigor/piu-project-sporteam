@@ -6,12 +6,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import androidx.annotation.NonNull;
@@ -123,6 +125,21 @@ public class NotificationActivity extends AppCompatActivity {
     }
 
     public void startNotificationHydration(View view) {
+        boolean value = true;
+        final SharedPreferences sharedPreferences = getSharedPreferences("hydrationSwitch", 0);
+        value = sharedPreferences.getBoolean("hydrationSwitch", value);
+        hydrationSwitch.setChecked(value);
+
+        hydrationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    sharedPreferences.edit().putBoolean("hydrationSwitch", true).apply();
+                }else {
+                    sharedPreferences.edit().putBoolean("hydrationSwitch", false).apply();;
+                }
+            }
+        });
         new CountDownTimer(3000, 1000) {
 
             @Override
@@ -131,13 +148,29 @@ public class NotificationActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                createNotification("Nu uita sa te hidratezi", NotificationActivity.this, NotificationActivity.class);
+                createNotification("Nu uita să te hidratezi", NotificationActivity.this, NotificationActivity.class);
             }
         }.start();
 
     }
 
     public void startNotificationWeather(View view) {
+        boolean value = true;
+        final SharedPreferences sharedPreferences = getSharedPreferences("weatherSwitch", 0);
+        value = sharedPreferences.getBoolean("weatherSwitch", value);
+        weatherSwitch.setChecked(value);
+
+        hydrationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    sharedPreferences.edit().putBoolean("weatherSwitch", true).apply();
+                }else {
+                    sharedPreferences.edit().putBoolean("weatherSwitch", false).apply();;
+                }
+            }
+        });
+
         new CountDownTimer(1000, 1000) {
 
             @Override
@@ -146,12 +179,27 @@ public class NotificationActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                createNotification("Vremea e minunata pentru sport. Alege ce vrei sa faci maine.", NotificationActivity.this, ViewEventsActivity.class);
+                createNotification("Vremea e minunată pentru sport. Alege ce vrei să faci mâine.", NotificationActivity.this, ViewEventsActivity.class);
             }
         }.start();
     }
 
     public void startNotificationNutrition(View view) {
+        boolean value = true;
+        final SharedPreferences sharedPreferences = getSharedPreferences("nutritionSwitch", 0);
+        value = sharedPreferences.getBoolean("nutritionSwitch", value);
+        nutritionSwitch.setChecked(value);
+
+        hydrationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    sharedPreferences.edit().putBoolean("nutritionSwitch", true).apply();
+                }else {
+                    sharedPreferences.edit().putBoolean("nutritionSwitch", false).apply();;
+                }
+            }
+        });
         new CountDownTimer(5000, 1000) {
 
             @Override
@@ -160,10 +208,15 @@ public class NotificationActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                createNotification("Consulta planul tau personalizat de  nutritie", NotificationActivity.this, NotificationActivity.class);
+                createNotification("Consultă planul tău personalizat de  nutriție", NotificationActivity.this, NotificationActivity.class);
             }
         }.start();
 
+    }
+
+    public void navigateToMonioriseActivity(View view){
+        startActivity(new Intent(NotificationActivity.this, MonitorizareActivity.class));
+        finish();
     }
 
 }
