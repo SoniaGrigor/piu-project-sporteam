@@ -163,7 +163,6 @@
         android:text="Adaugă recenzie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:onClick="addReview"
         app:layout_constraintTop_toBottomOf="@+id/locDetAvBetween"
         app:layout_constraintVertical_bias="0.338" />
 

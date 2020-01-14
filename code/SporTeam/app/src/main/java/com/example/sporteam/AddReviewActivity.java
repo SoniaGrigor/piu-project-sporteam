@@ -3,14 +3,26 @@ package com.example.sporteam;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.media.RatingCompat;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RatingBar;
 
+import com.example.sporteam.model.Location;
+import com.example.sporteam.service.LocationService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.DecimalFormat;
+
 public class AddReviewActivity extends AppCompatActivity {
+
+    private double stars;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,5 +56,36 @@ public class AddReviewActivity extends AppCompatActivity {
         Menu menu = navigation.getMenu();
         MenuItem menuItem = menu.getItem(3);
         menuItem.setChecked(true);
+
+        RatingBar rating = (RatingBar) findViewById(R.id.ratingBar);
+        EditText review = findViewById(R.id.edit_text);
+        Button sendReview = findViewById(R.id.sendReview);
+
+        rating.setNumStars(5);
+        rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                stars = ratingBar.getRating();
+            }
+        });
+
+        Intent intent = getIntent();
+        Location location = (Location) intent.getSerializableExtra("locationForReview");
+        LocationService.getInstance().addLocationReview(location, review.getText().toString());
+        LocationService.getInstance().addLocationRating(location, stars);
+
+        DecimalFormat df = new DecimalFormat("#.#");
+        stars = Double.valueOf(df.format(stars));
+
+        sendReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                String newR = stars + "/5";
+                intent.putExtra("newRating", newR);
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+        });
     }
 }

@@ -16,12 +16,12 @@ public class Location implements Serializable {
     private LocalTime startTime;
     private LocalTime endTime;
     private int image;
-    private String observations;
+    private String reviews;
     private String rating;
 
     public Location() {}
 
-    public Location(String name, String address, String ownerName, String ownerPhoneNumber, LocalDate availableFrom, LocalDate availableTo, LocalTime startTime, LocalTime endTime, int image, String observations, String rating) {
+    public Location(String name, String address, String ownerName, String ownerPhoneNumber, LocalDate availableFrom, LocalDate availableTo, LocalTime startTime, LocalTime endTime, int image, String reviews, String rating) {
         this.name = name;
         this.address = address;
         this.ownerName = ownerName;
@@ -31,7 +31,7 @@ public class Location implements Serializable {
         this.startTime = startTime;
         this.endTime = endTime;
         this.image = image;
-        this.observations = observations;
+        this.reviews = reviews;
         this.rating = rating;
     }
 
@@ -103,16 +103,16 @@ public class Location implements Serializable {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(int image){
         this.image = image;
     }
 
-    public String getObservations() {
-        return observations;
+    public String getReviews() {
+        return reviews;
     }
 
-    public void setObservations(String observations) {
-        this.observations = observations;
+    public void setReviews(String reviews) {
+        this.reviews = reviews;
     }
 
     public String getRating() {

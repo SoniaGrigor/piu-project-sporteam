@@ -1,9 +1,11 @@
 package com.example.sporteam;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.text.format.DateFormat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -218,9 +220,28 @@ public class ConfirmLocationBooking {
             }
         }
 
-        Toast.makeText(v.getContext(), "Operația a fost executată cu succes!", Toast.LENGTH_SHORT).show();
-        popupWindow1.dismiss();
-        ((Activity)context1).finish();
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context1);
+        alertDialogBuilder.setMessage("Doriți să confirmați?");
+        alertDialogBuilder.setPositiveButton("Da",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        Toast.makeText(v.getContext(), "Operația a fost executată cu succes!", Toast.LENGTH_SHORT).show();
+                        popupWindow1.dismiss();
+                        ((Activity)context1).finish();
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("Anulează",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //finish();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 
 }
