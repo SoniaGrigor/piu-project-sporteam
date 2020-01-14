@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.sporteam.adapter.ConversationAdapter;
@@ -62,5 +64,16 @@ public class ConversationsActivity extends AppCompatActivity {
         conversationAdapter.addAll(memberDataList);
         conversationsView.setAdapter(conversationAdapter);
         registerForContextMenu(conversationsView);
+
+        conversationsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick (AdapterView < ? > parent, View view, int position, long id){
+                if(position == 0) {
+                    Intent intent = new Intent(ConversationsActivity.this, ChatActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
+
 }

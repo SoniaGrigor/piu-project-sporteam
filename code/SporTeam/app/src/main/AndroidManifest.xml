@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".LocationForRentActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:label="@string/app_name"
@@ -74,6 +73,11 @@
             android:label="@string/location_book_page_title"
             android:theme="@style/AppTheme" />
         <activity
+            android:name=".LocationForRentActivity"
+            android:exported="true"
+            android:label="Adăugare spațiu nou"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".LocationDetailsActivity"
             android:exported="true"
             android:label="@string/location_details_page_title"
@@ -96,7 +100,7 @@
         <activity
             android:name=".EquipmentDetailsActivity"
             android:exported="true"
-            android:label="@string/equipment_page_title"
+            android:label="Detalii echipament"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".MyAccountActivity"
@@ -111,12 +115,12 @@
         <activity
             android:name=".MonitorizareActivity"
             android:exported="true"
-            android:label="Monitorizare sanatate"
+            android:label="Monitorizare sănătate"
             android:theme="@style/AppTheme" />
 
         <activity android:name=".AddReviewActivity"
             android:exported="true"
-            android:label="Adaugare recomandare"
+            android:label="Adăugare recomandare"
             android:theme="@style/AppTheme" />
     </application>
 

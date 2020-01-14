@@ -1,8 +1,10 @@
 package com.example.sporteam;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -44,6 +46,8 @@ public class LocationForRentActivity extends AppCompatActivity {
     private int startTimeHour, startTimeMinute, endTimeHour, endTimeMinute;
     private Calendar startTimeCalendar;
     private Calendar endTimeCalendar;
+
+    private boolean isOk = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +110,67 @@ public class LocationForRentActivity extends AppCompatActivity {
 
         endTimeHour = endTimeCalendar.get(Calendar.HOUR);
         endTimeMinute = endTimeCalendar.get(Calendar.MINUTE);
+
+        locationName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    if(locationName.getText().toString().equals("")){
+                        Toast.makeText(getApplicationContext(), "Introduceți numele locației!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        isOk = false;
+                    }
+                }
+            }
+        });
+
+        locationAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    if(locationAddress.getText().toString().equals("")){
+                        Toast.makeText(getApplicationContext(), "Introduceți adresa locației!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        isOk = false;
+                    }
+                }
+            }
+        });
+
+        ownerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    if(ownerName.getText().toString().equals("")){
+                        Toast.makeText(getApplicationContext(), "Introduceți numele proprietarului!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        isOk = false;
+                    }
+                }
+            }
+        });
+
+        ownerPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    if(ownerPhone.getText().toString().equals("")){
+                        Toast.makeText(getApplicationContext(), "Introduceți numărul de telefon al proprietarului!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        if(ownerPhone.getText().length() < 10 || ownerPhone.getText().length() > 12){
+                            Toast.makeText(getApplicationContext(), "Numărul de telefon introdus nu este valid!", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            isOk = false;
+                        }
+                    }
+                }
+            }
+        });
 
         availableFrom.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -282,21 +347,40 @@ public class LocationForRentActivity extends AppCompatActivity {
             return;
         }
 
-        Location location = new Location();
-        location.setImage(R.drawable.location);
-        location.setName(locationName.getText().toString());
-        location.setAddress(locationAddress.getText().toString());
-        location.setOwnerName(ownerName.getText().toString());
-        location.setOwnerPhoneNumber(ownerPhone.getText().toString());
-        location.setAvailableFrom(LocalDate.of(availableFromYear, availableFromMonth + 1, availableFromDay));
-        location.setAvailableTo(LocalDate.of(availableToYear, availableToMonth + 1, availableToDay));
-        location.setStartTime(LocalTime.of(startTimeHour, startTimeMinute));
-        location.setEndTime(LocalTime.of(endTimeHour, endTimeMinute));
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Doriți să confirmați?");
+        alertDialogBuilder.setPositiveButton("Da",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
 
-        Toast.makeText(getApplicationContext(), "Operația a fost executată cu succes!", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent();
-        intent.putExtra("rentLocation", location);
-        setResult(Activity.RESULT_OK, intent);
-        finish();
+                        Location location = new Location();
+                        location.setImage(R.drawable.location);
+                        location.setName(locationName.getText().toString());
+                        location.setAddress(locationAddress.getText().toString());
+                        location.setOwnerName(ownerName.getText().toString());
+                        location.setOwnerPhoneNumber(ownerPhone.getText().toString());
+                        location.setAvailableFrom(LocalDate.of(availableFromYear, availableFromMonth + 1, availableFromDay));
+                        location.setAvailableTo(LocalDate.of(availableToYear, availableToMonth + 1, availableToDay));
+                        location.setStartTime(LocalTime.of(startTimeHour, startTimeMinute));
+                        location.setEndTime(LocalTime.of(endTimeHour, endTimeMinute));
+
+                        Toast.makeText(getApplicationContext(), "Operația a fost executată cu succes!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent();
+                        intent.putExtra("rentLocation", location);
+                        setResult(Activity.RESULT_OK, intent);
+                        finish();
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("Anulează",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //finish();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }
